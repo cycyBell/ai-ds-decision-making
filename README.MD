@@ -5,13 +5,13 @@ This repository empowers you to tackle complex decisions with the power of Artif
 ***What's the magic?***
 
 **Multi-Criteria Analysis:** Evaluate decisions based on multiple, often conflicting, criteria.<br>
-**Dempster-Shafer Theory:** A powerful framework for handling uncertainty and imprecise information in decision making.
+**Dempster-Shafer Theory:** A powerful framework for handling uncertainty and imprecise information in decision making.<br>
 **AI-powered Automation:** Leverage the ds_ahp.ipynb script, a treasure trove of functions, to automate calculations and analysis.
 
 ***Why choose this?***
 
-**Data-Driven Decisions:** Make informed choices based on your data, stored conveniently in Docs and Excel files within the input folder.
-**Uncertainty Management:** Handle ambiguity and incomplete information inherent in real-world decisions using DS theory.
+**Data-Driven Decisions:** Make informed choices based on your data, stored conveniently in Docs and Excel files within the input folder.<br>
+**Uncertainty Management:** Handle ambiguity and incomplete information inherent in real-world decisions using DS theory.<br>
 **Streamlined Workflow:** The provided Jupyter notebook guides you through the analysis process, delivering the final results in the Final results file.
 
 
