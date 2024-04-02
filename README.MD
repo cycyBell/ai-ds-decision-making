@@ -29,7 +29,6 @@ Bash
 ```
 git clone https://github.com/cycyBell/ai-ds-decision-making.git
 ```
-Use code with caution.
 
 ***Prepare your data:***
 
