@@ -1,4 +1,4 @@
-# ⚖️ Multi-Criteria Decision Making with Dempster-Shafer Theory
+# ⚖️ AI based Multi-Criteria Decision Making with Dempster-Shafer Theory
 
 This repository empowers you to tackle complex decisions with the power of Artificial Intelligence and Dempster-Shafer (DS) theory.
 
