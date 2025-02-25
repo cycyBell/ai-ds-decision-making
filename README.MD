@@ -109,6 +109,7 @@ A profound transformation in multicriteria decision-making methodologies has bee
    $$
    CPV(j) \geq 0, \quad \forall j
    $$
+   
    This ensures that priority values are always positive or zero.
 
 **Normalization**:  
