@@ -38,7 +38,7 @@ These values can be derived under the frequentist paradigm as well as updated us
 
 ### Bayesian Inference for DMPVs
 
-Suppose a particular decision maker, **\( DM_i \)**, has participated in **\( n \)** decision-making processes, of which **\( k \)** were deemed "good" decisions and **\( n - k \)** were considered "bad." Our goal is to estimate **\( \theta_i \)**, the probability that **\( DM_i \)** makes a good decision in any given DMP. Some may 
+Suppose a particular decision maker, **$( DM_i )$**, has participated in **\( n \)** decision-making processes, of which **\( k \)** were deemed "good" decisions and **\( n - k \)** were considered "bad." Our goal is to estimate **\( \theta_i \)**, the probability that **\( DM_i \)** makes a good decision in any given DMP. Some may 
 
 #### 1. Prior Belief
 We start with a **prior distribution** over **\( \theta_i \)**, which represents our initial belief about the DM’s competence before observing any decisions. We'll make a common choice, the **Beta distribution** (This choice is not random):
