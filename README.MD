@@ -78,6 +78,16 @@ $$
 E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)}
 $$
 
+#### * DMPV calculation
+Let's refer to $E[\theta_i]$ as $\mu_i$ for simplicity. Once the expected values $\mu_i$ of $\theta_i$ for all $n$ DMs have been computed, the **Decision Maker Priority Values (DMPVs)**, denoted as **$DMPV(i)$** for the **$DM$** $i$, are then calculated as follows :
+
+```math
+DMPV(i) = \pi_i = \frac{\lambda_i * \mu_i}{\sum_{k = 1}^{n} \lambda_k * \mu_k}
+```
+Where : 
+- $\lambda_i \in [0, 1]$ is a hyperparameter called the experience coefficient. The higher the number of DMPs the DM participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are likely to be more trusted.
+This normalizing trick ensures that the DMPVs over all DMs sum to 1 : $\sum_{k = 1}^n \pi_k = 1$.
+
 #### * Example Calculation
 Suppose $DM_i$ has participated in $n = 15$ decision-making processes, yielding $k = 7$ good decisions and $8$ bad ones. If we assume a **uniform prior** $\alpha = 1, \beta = 1$, the posterior distribution becomes:
 
@@ -90,13 +100,10 @@ $$
 
 This suggests that $DM_i$ has an updated estimated probability of **47%** of making a good decision in future DMPs.
 
-We then compute the expected values $\theta_i$ for all $n$ DMs. Let $E[\theta_i] = \mu_i$, representing the expected competence of decision maker $i$. The **Decision Maker Priority Value (DMPV)** for **$DM_i$**, denoted as **$DMPV(i)$**, is then calculated as follows : 
 
-```math
-DMPV(i) = \pi_i = \frac{\mu_i}{\sum_{k = 1}^{n} \mu_k}
-```
 
-This ensures that the DMPVs sum to 1 : $\sum_{k = 1}^n \pi_k = 1$
+
+### 1. Estimating Criteria Priority Values (CPVs)
 
 
 
