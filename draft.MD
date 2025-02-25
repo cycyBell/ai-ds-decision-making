@@ -1,7 +1,7 @@
 # 🚀 A Comparative Study: Classical DS AHP vs. Modern Latent-Based Methods (Probabilistic PCA & VAE)
 
 ## 📌 Overview
-This repository presents a comparative study between the **Dempster-Shafer Analytic Hierarchy Process (DS AHP)** and **modern latent-based approaches** such as **Probabilistic PCA (PPCA) and Variational Autoencoders (VAE)**. The study aims to evaluate how these methods perform in terms of **feature extraction, decision-making accuracy, and computational efficiency**.
+This repository presents a comparative study between the **Dempster-Shafer Analytic Hierarchy Process (DS AHP)** and **modern latent-based approaches** such as **Probabilistic PCA (PPCA) and Variational Autoencoders (VAE)**. .
 
 ## 📖 Prerequisite Knowledge
 Before diving into this repository, familiarity with the following concepts is recommended:
