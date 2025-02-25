@@ -85,7 +85,7 @@ Let's refer to $E[\theta_i]$ as $\mu_i$ for simplicity. Once the expected values
 DMPV(i) = \pi_i = \frac{\lambda_i * \mu_i}{\sum_{k = 1}^{n} \lambda_k * \mu_k}
 ```
 Where : 
-- $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are likely to be more trusted.
+- $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM has participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are likely to be more trusted.
 
 This normalizing trick ensures that the DMPVs over all DMs sum to 1 : $\sum_{k = 1}^n \pi_k = 1$.
 
@@ -102,6 +102,20 @@ $$
 This suggests that $DM_i$ has an updated estimated probability of **47%** of making a good decision in future DMPs.
 
 ### 1. Estimating Criteria Priority Values (CPVs)
+A profound transformation in multicriteria decision-making methodologies has been observed when the notion of consensus building has been integrated. Like DMPVs, Criteria Priority Values serve  as **weighting factors** that quantify the contribution of each criterion to the final decision. As such, they possess the following properties : 
+**Non-Negativity**:  
+   $$
+   CPV(j) \geq 0, \quad \forall j
+   $$
+   This ensures that priority values are always positive or zero.
+
+**Normalization**:  
+   $$
+   \sum_{j=1}^{m} CPV(j) = 1
+   $$
+
+
+CPVs can be estimated using various methodologies, including **expert judgment (AHP models), statistical learning approaches, and probabilistic modeling**. This study, making use of the consensus-based expert judgments to derive those values, aims to keep the balance between the classical methods and their modern derivatives.
 
 
 
