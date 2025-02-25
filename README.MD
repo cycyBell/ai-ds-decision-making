@@ -40,7 +40,7 @@ These values can be derived under the frequentist paradigm as well as updated us
 
 Suppose a particular decision maker, $DM_i$, has participated in $n$ decision-making processes, of which $k$ were deemed "good" decisions and $n - k$ were considered "bad." Our goal is to estimate $\theta_i$, the probability that $DM_i$ makes a good decision in any given DMP. Some may  
 
-#### 1. Prior Belief
+#### * Prior Belief
 We start with a **prior distribution** over $\theta_i$, which represents our initial belief about the DM’s competence before observing any decisions. We'll make a common choice, the **Beta distribution** (This choice is not random):
 
 $$
@@ -51,14 +51,14 @@ where:
 - $\alpha$ represents prior successes (belief in competence).  
 - $\beta$ represents prior failures (belief in incompetence).  
 
-#### 2. Likelihood Function
+#### * Likelihood Function
 Given $k$ good decisions out of $n$, we assume a **Binomial likelihood**:
 
 $$
 P(D \mid \theta_i) = \text{Binomial}(k \mid n, \theta_i) = \binom{n}{k} \theta_i^k (1 - \theta_i)^{n-k}
 $$
 
-#### 3. Posterior Update (Bayes' Rule)
+#### * Posterior Update (Bayes' Rule)
 Applying **Bayes’ theorem**, we obtain the posterior distribution of $\theta_i$:
 
 $$
@@ -71,15 +71,19 @@ $$
 P(\theta_i \mid D) = \text{Beta}(\alpha + k, \beta + (n - k))
 $$
 
-#### 4. Example Calculation
+#### * Posterior mean
+This distribution encapsulates our **updated belief** about $DM_i$'s competence based on past performance. The expected value of $\theta_i$, representing the most likely estimate of $DM_i$'s probability of making a good decision, is given by:
+
+$$
+E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)}
+$$
+
+#### * Example Calculation
 Suppose $DM_i$ has participated in $n = 15$ decision-making processes, yielding $k = 7$ good decisions and $8$ bad ones. If we assume a **uniform prior** $\alpha = 1, \beta = 1$, the posterior distribution becomes:
 
 $$
 P(\theta_i \mid D) = \text{Beta}(1 + 7, 1 + 8) = \text{Beta}(8,9)
 $$
-
-This distribution encapsulates our **updated belief** about $DM_i$'s competence based on past performance. The expected value of $\theta_i$, representing the most likely estimate of $DM_i$'s probability of making a good decision, is given by:
-
 $$
 E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)} = \frac{8}{8+9} = \frac{8}{17} \approx 0.47
 $$
