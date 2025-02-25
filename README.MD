@@ -84,13 +84,13 @@ $$
 E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)} = \frac{8}{8+9} = \frac{8}{17} \approx 0.47
 $$
 
-This suggests that $DM_i$ has an updated estimated probability of **$47%$** of making a good decision in future DMPs.
+This suggests that $DM_i$ has an updated estimated probability of **47%** of making a good decision in future DMPs.
+We then compute the expected values $\theta_i$ for all $n$ DMs. Let $E[\theta_i] = \mu_i$, representing the expected competence of decision maker $i$. The **Decision Maker Priority Value (DMPV)** for **$DM_i$**, denoted as **$DMPV(i)$**, is then calculated as follows : 
+$$
+DMPV(i) = \pi_k = \frac{\mu_i}{\sum_{k = 1}^n \mu_k}
+$$
 
-### Conclusion
-
-This Bayesian framework allows for a **dynamically updated** estimation of each DM’s influence, adjusting beliefs based on new observations while incorporating prior knowledge. Such an approach enhances the robustness of **DS-AHP**, reducing the risk of over-reliance on **limited historical data** while maintaining a probabilistic structure that adapts to new evidence.
-
-
+This ensures that the DMPVs sum to 1 : $\sum_{k = 1}^n \pi_k = 1$
 
 
 
