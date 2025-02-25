@@ -85,10 +85,12 @@ E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)} = \frac{8}{8+9} = 
 $$
 
 This suggests that $DM_i$ has an updated estimated probability of **47%** of making a good decision in future DMPs.
+
 We then compute the expected values $\theta_i$ for all $n$ DMs. Let $E[\theta_i] = \mu_i$, representing the expected competence of decision maker $i$. The **Decision Maker Priority Value (DMPV)** for **$DM_i$**, denoted as **$DMPV(i)$**, is then calculated as follows : 
-$$
-DMPV(i) = \pi_k = \frac{\mu_i}{\sum_{k = 1}^n \mu_k}
-$$
+
+```math
+DMPV(i) = \pi_i = \frac{\mu_i}{\sum_{k = 1}^{n} \mu_k}
+```
 
 This ensures that the DMPVs sum to 1 : $\sum_{k = 1}^n \pi_k = 1$
 
