@@ -29,9 +29,67 @@ Before moving forward with this study, it's crucial for every reader to kwow tha
 Other background understandings are implied but non-negligeable. {Joke} There is no mention of DST or DS/AHP because the brief overview presented afterwards will be enough to stay synced.
 
 ## Prior Analysis
-### 1. Decision Makers Priority Values (DMPVs)
-DMPVs are sort of decision makers weights which determine how high is the impact of each DM in the final decision. If you're familiar with GMMs, DMPVs are for DS/AHP what mixing coefficients are for GMMs. These values can be derived under the frequentist paradigm and updated using the bayesian inference. Let me explain how. Under this probability framework, we can view a Decision Making process (DMP) that a DM participates in as a random sample from some larger, potentially hypothetical population of DMPs. We can then make a probability statement i.e long-run frequency statements based on this larger population.
-Example : Let's say decison maker i (DMi) particited in 15 decision making processes and here is the result : 7 Good decisions (7G) and 8 Bad ones (8B). We had a prior knowledge that the probability DMi is a good DM is known : $P\left( DM_i is a good DM \right) = P\left( \theta_i \right)$. What probability should we give to $\theta_i$, if $DM_i$ were to participate in a next DMP? In other words, what is the probability that $DM_i$ is a good DM after succeeding 7 times out of 15? Yes, you guessed it right : Bayes rule.
+While this section may appear straightforward to some, these fundamental details provided are essential for downstream tasks.
+### 1. Estimating Decision Makers Priority Values (DMPVs)
+
+Decision Maker Priority Values (**DMPVs**) represent the relative influence of each Decision Maker (**DM**) in the final decision. They are sort of decision makers weights which determine how high is the impact of each DM in a Decision Making process (DMP). If you're familiar with **GMMs**, drawing an analogy to them, DMPVs in **DS-AHP** serve a role similar to **mixing coefficients** in GMMs, determining the contribution of each component (DM) in the aggregation process. 
+
+These values can be derived under the frequentist paradigm as well as updated using the bayesian approaches. Under the frequentist probability framework, we can view a Decision Making process (DMP) that a DM participates in as a random sample from some larger, potentially hypothetical population of DMPs. We can then make a probability statement i.e long-run frequency statements based on this larger population. However, Bayesian inference provides a more **adaptive and probabilistic** way of updating our beliefs about a DM’s competence based on prior knowledge and observed data.
+
+### Bayesian Inference for DMPVs
+
+Suppose a particular decision maker, **\( DM_i \)**, has participated in **\( n \)** decision-making processes, of which **\( k \)** were deemed "good" decisions and **\( n - k \)** were considered "bad." Our goal is to estimate **\( \theta_i \)**, the probability that **\( DM_i \)** makes a good decision in any given DMP. Some may 
+
+#### 1. Prior Belief
+We start with a **prior distribution** over **\( \theta_i \)**, which represents our initial belief about the DM’s competence before observing any decisions. We'll make a common choice, the **Beta distribution** (This choice is not random):
+
+\[
+P(\theta_i) \sim \text{Beta}(\alpha, \beta)
+\]
+
+where:  
+- \( \alpha \) represents prior successes (belief in competence).  
+- \( \beta \) represents prior failures (belief in incompetence).  
+
+#### 2. Likelihood Function
+Given **\( k \)** good decisions out of **\( n \)**, we assume a **Binomial likelihood**:
+
+\[
+P(D \mid \theta_i) = \text{Binomial}(k \mid n, \theta_i) = \binom{n}{k} \theta_i^k (1 - \theta_i)^{n-k}
+\]
+
+#### 3. Posterior Update (Bayes' Rule)
+Applying **Bayes’ theorem**, we obtain the posterior distribution of **\( \theta_i \)**:
+
+\[
+P(\theta_i \mid D) \propto P(D \mid \theta_i) P(\theta_i)
+\]
+
+Since the **Beta distribution** is a conjugate prior for the **Binomial likelihood**, the posterior also follows a **Beta distribution**:
+
+\[
+P(\theta_i \mid D) = \text{Beta}(\alpha + k, \beta + (n - k))
+\]
+
+#### 4. Example Calculation
+Suppose **\( DM_i \)** has participated in **\( n = 15 \)** decision-making processes, yielding **\( k = 7 \)** good decisions and **\( 8 \)** bad ones. If we assume a **uniform prior** (\( \alpha = 1, \beta = 1 \)), the posterior distribution becomes:
+
+\[
+P(\theta_i \mid D) = \text{Beta}(1 + 7, 1 + 8) = \text{Beta}(8,9)
+\]
+
+This distribution encapsulates our **updated belief** about **\( DM_i \)**'s competence based on past performance. The expected value of **\( \theta_i \)**, representing the most likely estimate of **\( DM_i \)**'s probability of making a good decision, is given by:
+
+\[
+E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)} = \frac{8}{8+9} = \frac{8}{17} \approx 0.47
+\]
+
+This suggests that **\( DM_i \)** has an updated estimated probability of **47%** of making a good decision in future DMPs.
+
+### Conclusion
+
+This Bayesian framework allows for a **dynamically updated** estimation of each DM’s influence, adjusting beliefs based on new observations while incorporating prior knowledge. Such an approach enhances the robustness of **DS-AHP**, reducing the risk of over-reliance on **limited historical data** while maintaining a probabilistic structure that adapts to new evidence.
+
 
 
 
