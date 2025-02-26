@@ -104,22 +104,12 @@ This suggests that $DM_i$ has an updated estimated probability of **47%** of mak
 ### 1. Estimating Criteria Priority Values (CPVs)
 A profound transformation in multicriteria decision-making methodologies has been observed when the notion of consensus building has been integrated. Like DMPVs, Criteria Priority Values serve  as **weighting factors** that quantify the contribution of each criterion to the final decision. As such, they possess the following properties : 
 
-**Non-Negativity**: 
+> **Non-Negativity**: $$CPV(j) \geq 0, \quad \forall j$$
 
-   $$
-   CPV(j) \geq 0, \quad \forall j
-   $$
-   
-   This ensures that priority values are always positive or zero.
-
-**Normalization**:  
-
-   $$
-   \sum_{j=1}^{m} CPV(j) = 1
-   $$
+> **Normalization**:  $$\sum_{j=1}^{m} CPV(j) = 1$$
 
 
-CPVs can be estimated using various methodologies, including **expert judgment (AHP models), statistical learning approaches, and probabilistic modeling**. This study, making use of the consensus-based expert judgments to derive those values, aims to keep the balance between the classical methods and their modern derivatives.
+CPVs can be estimated using various methodologies, including **expert judgment (AHP models), statistical learning approaches, and probabilistic modeling**. This study, making use of the consensus-based expert judgments to derive those values through criteria pairwise comparison, aims to keep the balance between the classical methods and their modern derivatives. 
 
 
 
