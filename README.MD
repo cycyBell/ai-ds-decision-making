@@ -7,7 +7,7 @@ Despite its strengths, DS/AHP lacks a proper and well-defined mathematical struc
 
 ***keywords : Bayesian theory, Basic Probability assignment, Gaussian Mixture, Variational inference, Variationan Autoencoders, Dempter-Shafer Theory, Pairwise comparison, Maximum A Posteriori (MAP), Probabilistic Principal Component Analysis, CNNs, Multicriteria Decision Making, Decision Alternative or Alternative, Criteria.***
 
-## Introduction
+## I. Introduction
 Decision making processes involving multiple conflicting criteria inevitably requires a systematic and logical information structuring; the consideration of evidence based on several criteria is crucial for handling uncertainty and imprecise information. The Analytic Hierarchy Process (AHP) is one of techniques used by decision-makers (DMs), when it comes to choosing the best alternatives (for example, choosing 25 best candidates among 2000 for scholarship awards) subject to multiple criteria, to rank alternatives through pairwise comparisons by assigning weights (usually using the 1-9 Saaty's scale) based on their relative importance. Over time, enhanced AHP methods have been introduced to improve its ability to handle uncertainty and tackle ambiguity in human decisions. One such improvement is Dempster-Shafer AHP (DS/AHP), the method proposed by Malcom Beynon, which incorporates Dempster-Shafer Theory (DST) in AHP. This combination allows decision-makers to express degrees of belief over a set of alternatives, rather than forcing them into assigning strict probability to each alternative. By using Dempster's rule of combination, DS/AHP aggregates evidence from multiple sources (DMs), offering a more flexible decision-making framework. 
 
 While DS/AHP offers a better bayesian-extended mechanism for handling uncertainty, its mathematical rigidity hinders scalability, making it difficult for optimizations. More critically, decision-making processes often involve complex and high-dimensional data, which traditional AHP approaches, by entirely relying on expert-defined decisions, may struggle to manipulate effectively. These challenges have led researchers to explore modern, data-driven approaches, particularly in the field of Machine Learning (ML). The work of [Ibrahim Yilmaz, Aylin Adem, Metin Dağdeviren, 2023](https://www.sciencedirect.com/science/article/pii/S2352152X23013385) showcased a ML-integrated multi-criteria decision-making approach based on consensus for selection of energy storage locations.
@@ -28,85 +28,71 @@ Before moving forward with this study, it's crucial for every reader to kwow tha
 
 Other background understandings are implied but non-negligeable. {Joke} There is no mention of DST or DS/AHP because the brief overview presented afterwards will be enough to stay synced.
 
-## Prior Analysis
+## II. Prior Analysis
 While this section may appear straightforward to some, these fundamental details provided are essential for downstream tasks.
-### 1. Estimating Decision Makers Priority Values (DMPVs)
+### II.1. Estimating Decision Makers Priority Values (DMPVs)
 
 Decision Maker Priority Values (**DMPVs**) represent the relative influence of each Decision Maker (**DM**) in the final decision. They are sort of decision makers weights which determine how high is the impact of each DM in a Decision Making process (DMP). If you're familiar with **GMMs**, drawing an analogy to them, DMPVs in **DS-AHP** serve a role similar to **mixing coefficients** in GMMs, determining the contribution of each component (DM) in the aggregation process. 
 
 These values can be derived under the frequentist paradigm as well as updated using the bayesian approaches. Under the frequentist probability framework, we can view a Decision Making process (DMP) that a DM participates in as a random sample from some larger, potentially hypothetical population of DMPs. We can then make a probability statement i.e long-run frequency statements based on this larger population. However, Bayesian inference provides a more **adaptive and probabilistic** way of updating our beliefs about a DM’s competence based on prior knowledge and observed data.
 
-### Bayesian Inference for DMPVs
+#### II.1.1. Bayesian Inference for DMPVs
 
 Suppose a particular decision maker, $DM_i$, has participated in $n$ decision-making processes, of which $k$ were deemed "good" decisions and $n - k$ were considered "bad." Our goal is to estimate $\theta_i$, the probability that $DM_i$ makes a good decision in any given DMP. Some may  
 
-#### * Prior Belief
+##### II.1.1.1. Prior Belief
 We start with a **prior distribution** over $\theta_i$, which represents our initial belief about the DM’s competence before observing any decisions. We'll make a common choice, the **Beta distribution** (This choice is not random):
 
-$$
-P(\theta_i) \sim \text{Beta}(\alpha, \beta)
-$$
+> $P(\theta_i) \sim \text{Beta}(\alpha, \beta)$
 
 where:  
 - $\alpha$ represents prior successes (belief in competence).  
 - $\beta$ represents prior failures (belief in incompetence).  
 
-#### * Likelihood Function
+##### II.1.1.2. Likelihood Function
 Given $k$ good decisions out of $n$, we assume a **Binomial likelihood**:
 
-$$
-P(D \mid \theta_i) = \text{Binomial}(k \mid n, \theta_i) = \binom{n}{k} \theta_i^k (1 - \theta_i)^{n-k}
-$$
+> $P(D \mid \theta_i) = \text{Binomial}(k \mid n, \theta_i) = \binom{n}{k} \theta_i^k (1 - \theta_i)^{n-k}$
 
-#### * Posterior Update (Bayes' Rule)
+##### II.1.1.3. Posterior Update (Bayes' Rule)
 Applying **Bayes’ theorem**, we obtain the posterior distribution of $\theta_i$:
 
-$$
-P(\theta_i \mid D) \propto P(D \mid \theta_i) P(\theta_i)
-$$
+> $P(\theta_i \mid D) \propto P(D \mid \theta_i) P(\theta_i)$
 
 Since the **Beta distribution** is a conjugate prior for the **Binomial likelihood**, the posterior also follows a **Beta distribution**:
 
-$$
-P(\theta_i \mid D) = \text{Beta}(\alpha + k, \beta + (n - k))
-$$
+> $P(\theta_i \mid D) = \text{Beta}(\alpha + k, \beta + (n - k))$
 
-#### * Posterior mean
+##### II.1.1.3 Posterior mean
 This distribution encapsulates our **updated belief** about $DM_i$'s competence based on past performance. The expected value of $\theta_i$, representing the most likely estimate of $DM_i$'s probability of making a good decision, is given by:
 
-$$
-E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)}
-$$
+> $E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)}$
 
-#### * DMPV calculation
+#### II.1.2. DMPV calculation
 Let's refer to $E[\theta_i]$ as $\mu_i$ for simplicity. Once the expected values $\mu_i$ of $\theta_i$ for all $n$ DMs have been computed, the **Decision Maker Priority Values (DMPVs)**, denoted as **$DMPV(i)$** for the **$DM$** $i$, are then calculated as follows :
 
-```math
-DMPV(i) = \pi_i = \frac{\lambda_i * \mu_i}{\sum_{k = 1}^{n} \lambda_k * \mu_k}
-```
+> $DMPV(i) = \pi_i = \frac{\lambda_i * \mu_i}{\sum_{k = 1}^{n} \lambda_k * \mu_k}$
 Where : 
 - $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM has participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are likely to be more trusted.
 
 This normalizing trick ensures that the DMPVs over all DMs sum to 1 : $\sum_{k = 1}^n \pi_k = 1$.
 
-#### * Example 
+#### II.1.3. Example 
 Suppose $DM_i$ has participated in $n = 15$ decision-making processes, yielding $k = 7$ good decisions and $8$ bad ones. If we assume a **uniform prior** $\alpha = 1, \beta = 1$, the posterior distribution becomes:
 
-$$
-P(\theta_i \mid D) = \text{Beta}(1 + 7, 1 + 8) = \text{Beta}(8,9)
-$$
-$$
-E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)} = \frac{8}{8+9} = \frac{8}{17} \approx 0.47
-$$
+$P(\theta_i \mid D) = \text{Beta}(1 + 7, 1 + 8) = \text{Beta}(8,9)$
+
+$E[\theta_i] = \frac{\alpha + k}{\alpha + k + \beta + (n - k)} = \frac{8}{8+9} = \frac{8}{17} \approx 0.47$
 
 This suggests that $DM_i$ has an updated estimated probability of **47%** of making a good decision in future DMPs.
 
-### 1. Estimating Criteria Priority Values (CPVs)
+### II.2. Estimating Criteria Priority Values (CPVs)
 A profound transformation in multicriteria decision-making methodologies has been observed when the notion of consensus building was integrated. Like DMPVs, Criteria Priority Values serve  as **weighting factors** that quantify the contribution of each criterion to the final decision. As such, they possess the following properties : 
+***Non-Negativity***
+> $$CPV(j) \geq 0, \quad \forall j$$
 
-> **Non-Negativity**: $$CPV(j) \geq 0, \quad \forall j$$
-
-> **Normalization**:  $$\sum_{j=1}^{m} CPV(j) = 1$$
+***Normalization***: 
+> $$\sum_{j=1}^{m} CPV(j) = 1$$
 
 Where $m$ is the total number of criteria.
 
@@ -115,7 +101,7 @@ An algorithm explaining these steps will be provided. However, it is essential t
 
 During the DMP, each DM performs a **pairwise comparison** of all criteria using the **1-9 scale value**. This results in a $m \times m$ matrix ($m$ for the total number of criteria), commonly known as Pairwise Comparison Matrix (PCM). For the purpose of implementation in this study, the PCM will be referred to as Pairwise comparison Tensor (PCT).
 
-* 1-9 Scale Value
+#### II.2.1. 1-9 Scale Value
 The 1-9 Scale Value, also called Saaty's scale, integer-based scoring system used to compare criteria in a structured manner. When comparing a criterion $i$ to a criterion $j$, the scale is interpreted as follws :
 
  * A score of **1** indicates that the two criteria are equally important.  
@@ -123,19 +109,19 @@ The 1-9 Scale Value, also called Saaty's scale, integer-based scoring system use
  * A reciprocal value (e.g., $1/a, a = 2...9$, if criterion $j$  is thought to be more important than criterion $i$) is used for **consistency** in comparisons.  
 For problems with a higher number of criteria, this scale can be expanded.
 
-* Pairwise Comparison Tensor (PCT)
+#### II.2.2. Pairwise Comparison Tensor (PCT)
 A **PCT** is a structured **\( m \times m \) tensor** that encodes the comparisons made by a **DM**. It is mathematically defined by the following properties:
 
-**Positivity**
+***Positivity***
 > $PCT(i,j) > 0 \quad \forall i, j$;
 
-**Identity Property**
+***Identity Property***
 > $PCT(i,i) = 1 \quad \forall i$;
-A criterion compared to itself always has a score of **1**.
+ A criterion compared to itself always has a score of **1**.
 
-**Reciprocity**
+***Reciprocity***
 > $PCT(i,j) =  \frac{1}{PCT(j, i)}$;
-This suggests that if criterion $i$ is considered **x** times more important than $j$, then $j$ must be **( 1/x )** times as important as $i$.
+ This suggests that if criterion $i$ is considered **x** times more important than $j$, then $j$ must be **( 1/x )** times as important as $i$.
 
 This structured approach allows for a mathematically sound and interpretable estimation of **Criterion Priority Values (CPVs)**, which will be further elaborated in the subsequent sections.
 
