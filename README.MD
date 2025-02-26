@@ -74,7 +74,7 @@ Let's refer to $E[\theta_i]$ as $\mu_i$ for simplicity. Once the expected values
 > $DMPV(i) = \pi_i = \frac{\lambda_i \times \mu_i}{\sum_{k = 1}^{N} \lambda_k \times \mu_k}$;
 
 Where : 
-* $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM has participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are more likely to be trusted.
+* $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM has participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that the most experienced DMs are more likely to be trusted.
 
 This normalizing trick ensures that the DMPVs over all DMs sum to 1 : $\sum_{k = 1}^N \pi_k = 1$.
 
@@ -89,6 +89,7 @@ This suggests that $DM_i$ has an updated estimated probability of **47%** of mak
 
 ### II.2. Estimating Criteria Priority Values (CPVs)
 A profound transformation in multicriteria decision-making methodologies has been observed when the notion of consensus building was integrated. Like DMPVs, Criteria Priority Values serve  as **weighting factors** that quantify the contribution of each criterion to the final decision. As such, they possess the following properties : 
+
 ***Non-Negativity***
 > $CPV(j) \geq 0, \quad \forall j$
 
@@ -125,6 +126,14 @@ A criterion compared to itself always has a score of **1**.
 > $PCT(i,j) =  \frac{1}{PCT(j, i)}$;
 
 This suggests that if criterion $i$ is considered **x** times more important than $j$, then $j$ must be **( 1/x )** times as important as $i$.
+
+#### II.2.3. Consensus-based CPV estimation algorithm
+Consensus building is a weel-established concept in the realm of decision making. It refers to a collaborative process in which a group of DMs set their mind to achieve a broad acceptance on the best option by actively working together,  ensuring that all stakeholders' perspectives are considered while addressing potential disagreements through **discussion and compromise**, aiming for a decision that most can support. In some cases, individuals may choose to "stand aside," signaling that while they may not fully lean to the decision, they do not actively oppose it. Consensus is typically achieved when **all or nearly all** members of the group **assent to a decision**, even if some may not fully agree with every aspect of it. 
+ 
+
+
+
+
 
 This structured approach allows for a mathematically sound and interpretable estimation of **Criterion Priority Values (CPVs)**, which will be further elaborated in the subsequent sections.
 
