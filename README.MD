@@ -71,7 +71,8 @@ This distribution encapsulates our **updated belief** about $DM_i$'s competence 
 #### II.1.2. DMPV calculation
 Let's refer to $E[\theta_i]$ as $\mu_i$ for simplicity. Once the expected values $\mu_i$ of $\theta_i$ for all $n$ DMs have been computed, the **Decision Maker Priority Values (DMPVs)**, denoted as **$DMPV(i)$** for the **$DM$** $i$, are then calculated as follows :
 
-> $DMPV(i) = \pi_i = \frac{\lambda_i * \mu_i}{\sum_{k = 1}^{n} \lambda_k * \mu_k}$
+> $DMPV(i) = \pi_i = \frac{\lambda_i * \mu_i}{\sum_{k = 1}^{n} \lambda_k * \mu_k}$;
+
 Where : 
 - $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM has participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are likely to be more trusted.
 
@@ -101,7 +102,7 @@ An algorithm explaining these steps will be provided. However, it is essential t
 
 During the DMP, each DM performs a **pairwise comparison** of all criteria using the **1-9 scale value**. This results in a $m \times m$ matrix ($m$ for the total number of criteria), commonly known as Pairwise Comparison Matrix (PCM). For the purpose of implementation in this study, the PCM will be referred to as Pairwise comparison Tensor (PCT).
 
-#### II.2.1. 1-9 Scale Value
+#### II.2.1. The 1-9 Scale Value
 The 1-9 Scale Value, also called Saaty's scale, integer-based scoring system used to compare criteria in a structured manner. When comparing a criterion $i$ to a criterion $j$, the scale is interpreted as follws :
 
  * A score of **1** indicates that the two criteria are equally important.  
@@ -117,11 +118,13 @@ A **PCT** is a structured **\( m \times m \) tensor** that encodes the compariso
 
 ***Identity Property***
 > $PCT(i,i) = 1 \quad \forall i$;
- A criterion compared to itself always has a score of **1**.
+
+A criterion compared to itself always has a score of **1**.
 
 ***Reciprocity***
 > $PCT(i,j) =  \frac{1}{PCT(j, i)}$;
- This suggests that if criterion $i$ is considered **x** times more important than $j$, then $j$ must be **( 1/x )** times as important as $i$.
+
+This suggests that if criterion $i$ is considered **x** times more important than $j$, then $j$ must be **( 1/x )** times as important as $i$.
 
 This structured approach allows for a mathematically sound and interpretable estimation of **Criterion Priority Values (CPVs)**, which will be further elaborated in the subsequent sections.
 
