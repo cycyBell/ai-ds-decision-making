@@ -74,7 +74,7 @@ Let's refer to $E[\theta_i]$ as $\mu_i$ for simplicity. Once the expected values
 > $DMPV(i) = \pi_i = \frac{\lambda_i * \mu_i}{\sum_{k = 1}^{n} \lambda_k * \mu_k}$;
 
 Where : 
-- $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM has participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are likely to be more trusted.
+* $\lambda_i \in [0, 1]$ is a hyperparameter termed the experience coefficient. The higher the number of DMPs the DM has participated in, the closer $\lambda_i$ value is from $1$. The general idea behind this trick is that most experienced DMs are likely to be more trusted.
 
 This normalizing trick ensures that the DMPVs over all DMs sum to 1 : $\sum_{k = 1}^n \pi_k = 1$.
 
