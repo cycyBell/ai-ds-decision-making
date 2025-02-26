@@ -102,14 +102,44 @@ $$
 This suggests that $DM_i$ has an updated estimated probability of **47%** of making a good decision in future DMPs.
 
 ### 1. Estimating Criteria Priority Values (CPVs)
-A profound transformation in multicriteria decision-making methodologies has been observed when the notion of consensus building has been integrated. Like DMPVs, Criteria Priority Values serve  as **weighting factors** that quantify the contribution of each criterion to the final decision. As such, they possess the following properties : 
+A profound transformation in multicriteria decision-making methodologies has been observed when the notion of consensus building was integrated. Like DMPVs, Criteria Priority Values serve  as **weighting factors** that quantify the contribution of each criterion to the final decision. As such, they possess the following properties : 
 
 > **Non-Negativity**: $$CPV(j) \geq 0, \quad \forall j$$
 
 > **Normalization**:  $$\sum_{j=1}^{m} CPV(j) = 1$$
 
+Where $m$ is the total number of criteria.
 
-CPVs can be estimated using various methodologies, including **expert judgment (AHP models), statistical learning approaches, and probabilistic modeling**. This study, making use of the consensus-based expert judgments to derive those values through criteria pairwise comparison, aims to keep the balance between the classical methods and their modern derivatives. 
+CPVs can be estimated using various methodologies, including **expert judgment (AHP models), statistical learning approaches, and probabilistic modeling**. This study, making use of the consensus-based expert judgments to derive those values through criteria pairwise comparisons, aims to keep the balance between the classical methods and their modern derivatives. 
+An algorithm explaining these steps will be provided. However, it is essential to establish some key terminologies that underpin this process. 
+
+During the DMP, each DM performs a **pairwise comparison** of all criteria using the **1-9 scale value**. This results in a $m \times m$ matrix ($m$ for the total number of criteria), commonly known as Pairwise Comparison Matrix (PCM). For the purpose of implementation in this study, the PCM will be referred to as Pairwise comparison Tensor (PCT).
+
+* 1-9 Scale Value
+The 1-9 Scale Value, also called Saaty's scale, integer-based scoring system used to compare criteria in a structured manner. When comparing a criterion $i$ to a criterion $j$, the scale is interpreted as follws :
+
+ * A score of **1** indicates that the two criteria are equally important.  
+ * A score greater than **1** (**2 to 9**) expresses the relative priority of criterion $i$ over criterion $j$.  
+ * A reciprocal value (e.g., $1/a, a = 2...9$, if criterion $j$  is thought to be more important than criterion $i$) is used for **consistency** in comparisons.  
+For problems with a higher number of criteria, this scale can be expanded.
+
+* Pairwise Comparison Tensor (PCT)
+A **PCT** is a structured **\( m \times m \) tensor** that encodes the comparisons made by a **DM**. It is mathematically defined by the following properties:
+
+**Positivity**
+> $PCT(i,j) > 0 \quad \forall i, j$;
+
+**Identity Property**
+> $PCT(i,i) = 1 \quad \forall i$;
+A criterion compared to itself always has a score of **1**.
+
+**Reciprocity**
+> $PCT(i,j) =  \frac{1}{PCT(j, i)}$;
+This suggests that if criterion $i$ is considered **x** times more important than $j$, then $j$ must be **( 1/x )** times as important as $i$.
+
+This structured approach allows for a mathematically sound and interpretable estimation of **Criterion Priority Values (CPVs)**, which will be further elaborated in the subsequent sections.
+
+
 
 
 
