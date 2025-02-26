@@ -111,7 +111,7 @@ The 1-9 Scale Value, also called Saaty's scale, integer-based scoring system use
 For problems with a higher number of criteria, this scale can be expanded.
 
 #### II.2.2. Pairwise Comparison Tensor (PCT)
-A **PCT** is a structured **\( m \times m \) tensor** that encodes the comparisons made by a **DM**. It is mathematically defined by the following properties:
+A **PCT** is a structured $ m \times m $new tensor** that encodes the comparisons made by a **DM**. It is mathematically defined by the following properties:
 
 ***Positivity***
 > $PCT(i,j) > 0 \quad \forall i, j$;
