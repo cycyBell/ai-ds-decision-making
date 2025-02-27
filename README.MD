@@ -129,6 +129,45 @@ This suggests that if criterion $i$ is considered **x** times more important tha
 
 #### II.2.3. Consensus-based CPV estimation algorithm
 Consensus building is a weel-established concept in the realm of decision making. It refers to a collaborative process in which a group of DMs set their mind to achieve a broad acceptance on the best option by actively working together,  ensuring that all stakeholders' perspectives are considered while addressing potential disagreements through **discussion and compromise**, aiming for a decision that most can support. In some cases, individuals may choose to "stand aside," signaling that while they may not fully lean to the decision, they do not actively oppose it. Consensus is typically achieved when **all or nearly all** members of the group **assent to a decision**, even if some may not fully agree with every aspect of it. 
+
+Over the years, various methods have been developed to build consensus in **Multi-Criteria Decision-Making**. [(You, X., Hou, F. & Lou, Z.)](https://doi.org/10.1007/s12559-021-09913-x) proposed a Consensus Building approach in Multi-criteria Group Decision-Making using **Single-Valued Neutrosophic Sets (SVNS)** to account for uncertainty in expert cognition. We, hereby, describe a **novel consensus-building framework** in which DMs agree on a consensus level **(1% to 100%)**, and the consensus is built using the **"Meet Me Halfway" tradeoff approach**.
+A consensus level of **100%** implies that, by the end of the training loop, DMs' PCTs should be highly similar assuming the process went well. Since consensus depends on DMs' opinions, a lower consensus level allows for more variability in the final decision-making process. 
+
+Before introducing the **consensus training loop**, two key concepts must be understood:  
+
+- **Consensus step**: A single pass in the consensus training loop.  
+- **Consensus operation**: corresponds to the PCTs updating process when two DMs mutually agree to adjust their evaluations.  
+
+In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs pairwise distance calculations are performed, and the consensus operation is conducted on the pair of PCTs with the maximum distance, given that the respective DMs agree to adjust their evaluations.
+
+#### **Consensus Training Loop Steps** 
+
+**(a) Inputs** : 
+    * $\Omega$ : a three-dimensional tensor,$N \times Shape(PCT)$ ($N$ for the total number of DMs), containing all N DMs' PCTs;
+    * $\Xi$ : consensus level (ranging from 0 to 1);
+    * epochs : maximum number of iteration;
+    * $\kappa$ : Maximum value in the scale range ($\kappa = 9$ in the 1-9 Saaty's scale);
+    * $\mathcal{S}$ : a set of all possible DM pairs;
+
+**(b) Variables initialization** :
+    * Consensus index : $\xi = \frac{\Xi}{2}$;
+    * Maximum distance allowed : $d_max = \frac{(\kappa - 1)(1-\Xi)}{\kappa}$
+
+**(b) Consensus loop**
+
+    (1) Compute the pairwise distances between all DMs;
+    (2) Identify the pair of DMs with the max distance $d_pmax$;
+    (3) If $d_pmax \leq d_max$  → **Exit the loop** (Consensus condition met).;
+    (4) Ask the identified DM pair if they both agree for a consensus operation;
+    (5) **If Yes** → Update the pair of PCTs and proceed to step **(7)**.  
+    (6) **If No** → Remove this pair from **$ \mathcal{S} $** and proceed to step **(8)**.  
+    (7) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (1)**.  
+    (8) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (2)**.  
+
+
+
+
+
  
 
 
