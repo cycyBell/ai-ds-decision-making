@@ -167,7 +167,7 @@ In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs p
 
 (5) **If Yes** → Update the pair of PCTs and proceed to step **(7)**;
 
-(6) **If No** → Remove this pair from **$ \mathcal{S} $** and proceed to step **(8)**;
+(6) **If No** → Remove this pair from **$\mathcal{S}$** and proceed to step **(8)**;
 
 (7) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (1)**;
 
