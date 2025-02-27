@@ -144,27 +144,27 @@ In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs p
 
 **(a) Inputs** : 
 
-    - $\Omega$ : a three-dimensional tensor, $N \times \text{Shape}(PCT)$ ($N$ for the total number of DMs), containing all N DMs' PCTs;
-    - $\Xi$ : consensus level (ranging from 0 to 1);
-    - epochs : maximum number of iteration;
-    - $\kappa$ : Maximum value in the scale range ($\kappa = 9$ in the 1-9 Saaty's scale);
-    - $\mathcal{S}$ : a set of all possible DM pairs;
+- $\Omega$ : a three-dimensional tensor, $N \times \text{Shape}(PCT)$ ($N$ for the total number of DMs), containing all N DMs' PCTs;
+- $\Xi$ : consensus level (ranging from 0 to 1);
+- epochs : maximum number of iteration;
+- $\kappa$ : Maximum value in the scale range ($\kappa = 9$ in the 1-9 Saaty's scale);
+- $\mathcal{S}$ : a set of all possible DM pairs;
 
 **(b) Variables initialization** :
 
-    - Consensus index : $\xi = \frac{\Xi}{2}$;
-    - Maximum distance allowed : $d_max = \frac{(\kappa - 1)(1-\Xi)}{\kappa}$
+- Consensus index : $\xi = \frac{\Xi}{2}$;
+- Maximum distance allowed : $d_max = \frac{(\kappa - 1)(1-\Xi)}{\kappa}$
 
 **(b) Consensus loop**
 
-    (1) Compute the pairwise distances between all DMs;
-    (2) Identify the pair of DMs with the max distance $d_pmax$;
-    (3) If $d_pmax \leq d_max$  → **Exit the loop** (Consensus condition met).;
-    (4) Ask the identified DM pair if they both agree for a consensus operation;
-    (5) **If Yes** → Update the pair of PCTs and proceed to step **(7)**.  
-    (6) **If No** → Remove this pair from **$ \mathcal{S} $** and proceed to step **(8)**.  
-    (7) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (1)**.  
-    (8) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (2)**.  
+(1) Compute the pairwise distances between all DMs;
+(2) Identify the pair of DMs with the max distance $d_pmax$;
+(3) If $d_pmax \leq d_max$  → **Exit the loop** (Consensus condition met).;
+(4) Ask the identified DM pair if they both agree for a consensus operation;
+(5) **If Yes** → Update the pair of PCTs and proceed to step **(7)**.  
+(6) **If No** → Remove this pair from **$ \mathcal{S} $** and proceed to step **(8)**.  
+(7) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (1)**.  
+(8) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (2)**.  
 
 
 
