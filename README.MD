@@ -144,7 +144,7 @@ In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs p
 
 **(a) Inputs** : 
 
-- $\Omega$ : a three-dimensional tensor, $N \times \text{Shape}(PCT)$ ($N$ for the total number of DMs), containing all N DMs' PCTs;
+- $\big \Omega$ : a three-dimensional tensor, $N \times \text{Shape}(PCT)$ ($N$ for the total number of DMs), containing all N DMs' PCTs;
 - $\Xi$ : consensus level (ranging from 0 to 1);
 - epochs : maximum number of iteration;
 - $\kappa$ : Maximum value in the scale range ($\kappa = 9$ in the 1-9 Saaty's scale);
@@ -173,6 +173,12 @@ In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs p
 
 (8) If the **maximum number of epochs** is reached → **Exit the loop**, else **repeat from step (2)**; 
 
+**(c) Output**
+
+- $\big \Omega_{new}$ : An updated DMs' PCTs tensor.
+
+The CPV of a criterion $i$ is determined as follows : 
+> $CPV(i) = \frac{1}{N \times m}\sum_{k = 1}^N \pi_k \sum_{l = 1}^m \big \Omega_{new}(k,i,l)$
 
 
 
