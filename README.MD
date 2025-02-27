@@ -143,15 +143,17 @@ In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs p
 #### **Consensus Training Loop Steps** 
 
 **(a) Inputs** : 
-    * $\Omega$ : a three-dimensional tensor,$N \times Shape(PCT)$ ($N$ for the total number of DMs), containing all N DMs' PCTs;
-    * $\Xi$ : consensus level (ranging from 0 to 1);
-    * epochs : maximum number of iteration;
-    * $\kappa$ : Maximum value in the scale range ($\kappa = 9$ in the 1-9 Saaty's scale);
-    * $\mathcal{S}$ : a set of all possible DM pairs;
+
+    - $\Omega$ : a three-dimensional tensor, $N \times \text{Shape}(PCT)$ ($N$ for the total number of DMs), containing all N DMs' PCTs;
+    - $\Xi$ : consensus level (ranging from 0 to 1);
+    - epochs : maximum number of iteration;
+    - $\kappa$ : Maximum value in the scale range ($\kappa = 9$ in the 1-9 Saaty's scale);
+    - $\mathcal{S}$ : a set of all possible DM pairs;
 
 **(b) Variables initialization** :
-    * Consensus index : $\xi = \frac{\Xi}{2}$;
-    * Maximum distance allowed : $d_max = \frac{(\kappa - 1)(1-\Xi)}{\kappa}$
+
+    - Consensus index : $\xi = \frac{\Xi}{2}$;
+    - Maximum distance allowed : $d_max = \frac{(\kappa - 1)(1-\Xi)}{\kappa}$
 
 **(b) Consensus loop**
 
