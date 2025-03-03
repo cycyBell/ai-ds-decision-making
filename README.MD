@@ -226,12 +226,13 @@ In DS/AHP method, after deriving the DMs and criteria priority values, an analys
 #### III.3.1. Knowledge matrix
 Given a DM $i$, his knowledge matrix $A_i$ is a $m \times d \times d$ decision matrix containing the scores of focal elements proposed by DM $i$ under $m$ criteria, where $d$ is the cardinality of $\Phi \subset \Theta$, the set of all focal elements with a non-zero BPA. Under a criterion $k$, the knowledge matrix $A_i^k$ for DM $i$ is defined as follows : 
 ```math
+A_i^k = 
 \begin{pmatrix}
     1 &0 &\cdots &0 &a_1 \cdot CPV(k)\\
     0 &1 &\ddots &\vdots &a_2 \cdot CPV(k)\\
     \vdots &\ddots &\ddots &0 &\vdots\\
     0 &\cdots &0 &1 &{a_{d-1} \cdot CPV(k)}\\
-    \frac{1}{a_1 \cdot CPV(k)} &\frac{1}{a_2 \cdot CPV(k)} &\frac{1}{a_{d-1} \cdot CPV(k)} &1
+    \frac{1}{a_1 \cdot CPV(k)} &\frac{1}{a_2 \cdot CPV(k)} &\cdots &\frac{1}{a_{d-1} \cdot CPV(k)} &1
  \end{pmatrix}
  ```
 
