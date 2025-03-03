@@ -236,15 +236,17 @@ A_i^k =
  \end{pmatrix}
  ```
 
-```math
-A_i^k(j,l) = 
-\begin{cases}
-    1 & \text{if } j = l \\
-    0 & \text{if} j \in \]1,d\[ \text{and} l \in \]1,d\[\\
-    CPV(k) \times a_j & \text{if} j \in \]1,d\[ \text{and} l = d \\
-    1/
-\end{cases}
-```
+Where $a_j = 2, \ldots, \kappa_2$ (alternatives scale range) is the amount of knowledge of the DM on a focal element $j$.
+
+#### III.3.2. BPA calculation
+The largest eigenvalue value associated with $A_i^{k}$ is $\gamma_i^{k} = 1+\sqrt{d-1}$ (Proof by Malcolm Beynon 2002).
+The normalised values within the eigenvector defined by $(x_1 x_2, \ldots, x_d )$ associated with the largest eigenvalue of the matrix $A_i^{k}$ is :
+
+$x_j = \frac{A_i^{k}(j,d)}{\sum_{l=1}^{d-1}A_i^{k}(l,d) + \sqrt{d-1}}$ and $x_d = \frac{\sqrt{d-1}}{\sum_{l=1}^{d-1}A_i^{k}(l,d) + \sqrt{d-1}}$
+
+The values $xj = (x_1, x_2, \ldots, x_{d-1} )$ and $x_{d}$ constructed can be directly considered the BPA values for $d-1$ groups of DA and $\Theta$,respectively,when the matrix  $A_i^{k}$ is a knowledge matrix.
+
+
 
 
 
