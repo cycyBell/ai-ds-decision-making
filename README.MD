@@ -186,7 +186,7 @@ Investigating the general mathematical formulation of DS/AHP is paramount for th
 ### III.1. Important definitions
 **a. Frame of discernment**
 
-The frame of discernment is a finite set $\Theta = \{a_1,a_2,\ldots,a_n\}$ of all possible alternatives embarked on the DMP.
+The frame of discernment is a finite set $\Theta = {a_1,a_2,\ldots,a_n}$ of all possible alternatives embarked on the DMP.
 
 
  
