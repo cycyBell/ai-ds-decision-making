@@ -206,16 +206,13 @@ Any subset x of the frame of discernment $\Theta$ for which $m(x)$  is non-zero 
 
 It represents the confidence that a proposition y lies in A or any subset of A.
 
-***Plausibility*** measure is a function $Pl{}\, : \, 2^\Theta \to [0,1]$ representing  the extent to which evidence in favor of $\sim p$ leaves room for belief in $p$.  It can be obtained as the sum of the masses of all sets whose intersection with the hypothesis is not empty. It is an upper bound on the possibility that the hypothesis could be true, because there is only so much evidence that contradicts that hypothesis : 
+***Plausibility*** measure is a function $Pl : 2^\Theta \to [0,1]$ representing  the extent to which evidence in favor of $\sim p$ leaves room for belief in $p$.  It can be obtained as the sum of the masses of all sets whose intersection with the hypothesis is not empty. It is an upper bound on the possibility that the hypothesis could be true, because there is only so much evidence that contradicts that hypothesis : 
 > $Pl(\mathcal{A}) = \sum_{\mathcal{A} \cap \mathcal{B} \neq \emptyset}m(\mathcal{B}) \quad \forall \mathcal{A} \subseteq {\Theta}$.
 ### III.2. Dempster's rule of combination
 In MCDMs, different DMs express their beliefs over the frame in terms of belief constraints such as in the case of expressing preferences. The problem now is how to combine those independent sets of probability mass assignments in specific situations. Dempster's rule of combination is the appropriate fusion operator used to derive common shared belief between multiple sources and ignores all the conflicting belief through a normalization factor.
 
-Given two sets of masses $m_1$ and $m_2$,  the combination (called the **joint mass**) $$
- \begin{cases}
- a &\text{if \(n=0\)} \\
- r\cdot f_{n-1} &\text{else}
- \end{cases}
+Given two sets of masses $m_1$ and $m_2$,  the combination (called the **joint mass**) $m_1 \oplus m_2 : 2^\Theta \to [0,1]$ is calculated in the following manner : 
+> $[m_1 + m_2](y) = \begin{cases}0 &\text{if \(y=\emptyset\)} \\ \frac{\sum_{\mathcal{S_1} \cap \mathcal{S_2} = y}m_1(\mathcal{S_1})m_2(\mathcal{S_2})}{1 - \sum_{\mathcal{S_1} \cap \mathcal{S_2} = \emptyset}m_1(\mathcal{S_1})m_2(\mathcal{S_2}) } &\text{else}\end{cases}$
 
 
 
