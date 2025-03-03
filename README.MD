@@ -193,16 +193,32 @@ The frame of discernment is a finite set $\Theta = {a_1,a_2,\ldots,a_n}$ of all 
 The basic probability assignment (BPA) is a key function in DST used to make evaluations, decisions based on information fusing from multiple data sources. Also known as a mass function, BPA $m : 2^{\Theta} \to [0,1]$ maps subsets of $\Theta$ to a value between 0 and 1.Since BPA doesn't need to meet all the requirements of a probability measure, it cannot be viewed this way. BPA's main features are :
 > $\sum_{x \in 2^{\Theta}}m(x) = 1$ and $m(\emptyset) = 0$.
 
-The notation $2^\Theta$ relates to the power set of $\Theta$.
+The notation $2^\Theta$ relates to the power set or the set of all subsets of $\Theta$ including $\emptyset$.
 
 **c. Focal element**
 
 Any subset x of the frame of discernment $\Theta$ for which $m(x)$  is non-zero is called a focal element and represents the exact belief in the proposition depicted by x.
 
-**d. Belief function**
+**d. Belief and Plausibility functions**
 
-Belief in a hypothesis-set $\mathcal{A} \subseteq \Theta$ is drawn from the sum of the masses of all subsets of that hypothesis-set. It is the amount of belief that directly supports either the given hypothesis or a more specific one, thus forming a lower bound on its probability. The Belief function $Bel : 2^{\Theta} \to [0,1]$, measuring the strength of the evidence in favor of a proposition p,ranges from 0 (indicating no evidence) to 1 (denoting certainty). It's defined by :
-> $Bel(\mathcal{A}) = \sum_{\mathcal{B} \subseteq \mathcal{A}}m(\mathcal{B}) \quad \forall mathcal{A} \subseteq {\Theta}$
+***Belief*** in a hypothesis-set $\mathcal{A} \subseteq \Theta$ is drawn from the sum of the masses of all subsets of that hypothesis-set. It is the amount of belief that directly supports either the given hypothesis or a more specific one, thus forming a lower bound on its probability. The Belief function $Bel : 2^{\Theta} \to [0,1]$, measuring the strength of the evidence in favor of a proposition $p$, ranges from 0 (indicating no evidence) to 1 (denoting certainty). It's defined by :
+> $Bel(\mathcal{A}) = \sum_{\mathcal{B} \subseteq \mathcal{A}}m(\mathcal{B}) \quad \forall \mathcal{A} \subseteq {\Theta}$;
+
+It represents the confidence that a proposition y lies in A or any subset of A.
+
+***Plausibility*** measure is a function $Pl \, : \, 2^\Theta \to [0,1]$ representing  the extent to which evidence in favor of $\sim p$ leaves room for belief in $p$.  It can be obtained as the sum of the masses of all sets whose intersection with the hypothesis is not empty. It is an upper bound on the possibility that the hypothesis could be true, because there is only so much evidence that contradicts that hypothesis : 
+> $Pl(\mathcal{A}) = \sum_{\mathcal{A} \cap \mathcal{B}}m(\mathcal{B}) \quad \forall \mathcal{A} \subseteq {\Theta}$.
+### III.2. Dempster's rule of combination
+In MCDMs, different DMs express their beliefs over the frame in terms of belief constraints such as in the case of expressing preferences. The problem now is how to combine those independent sets of probability mass assignments in specific situations. Dempster's rule of combination is the appropriate fusion operator used to derive common shared belief between multiple sources and ignores all the conflicting belief through a normalization factor.
+
+Given two sets of masses $m_1$ and $m_2$,  the combination (called the **joint mass**) $$
+
+
+
+
+
+
+
 
 
  
