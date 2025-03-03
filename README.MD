@@ -180,7 +180,14 @@ In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs p
 The CPV of a criterion $i$ is determined as follows : 
 > $CPV(i) = \frac{1}{N \times m}\sum_{k = 1}^N \pi_k \sum_{l = 1}^m \Omega_{new}(k,i,l)$
 
-## Overview of the classical DS/AHP method
+## III. Overview of the classical DS/AHP method
+
+Investigating the general mathematical formulation of DS/AHP is paramount for the consideration of its analytic structure within the modern ML-based approach. Many papers describe the blueprint basic principles of DS/AHP including its mathematical thorough analysis. However, for the sake of brievety and consistency, the only important fundamental aspects of DST are described which are necessary for the tasks down the line. 
+### III.1. Important definitions
+**a. Frame of discernment**
+
+The frame of discernment is a finite set $\Theta = \{a_1,a_2,\ldots,a_n\}$ of all possible alternatives embarked on the DMP.
+
 
  
 
