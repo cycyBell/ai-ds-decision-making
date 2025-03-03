@@ -219,10 +219,31 @@ Given two sets of masses $m_1$ and $m_2$,  the combination (called the **joint m
     \frac{\sum\limits_{\substack{S_1 \cap S_2 = y}} m_1(S_1) m_2(S_2)}{1 - \sum\limits_{\substack{S_1 \cap S_2 = \emptyset}} m_1(S_1) m_2(S_2)} & \text{otherwise}
 \end{cases}
 ```
+### III.3. DS/AHP algorithm
+Let's say, we have a DMP involving $N$ DMs, $n$ alternatives subject to $m$ criteria
+In DS/AHP method, after deriving the DMs and criteria priority values, an analysis is then conducted on alternatives to output the final ranks based on these priority values and alternatives scores (obtained via DMs alternatives comparisons under each criterion). Unlike the pairwise criteria comparisons where criteria are compared between them, alternatives are directly compared to the frame of discernment $\Theta$, the set of all possible alternatives, using a second scale range $1,\cdots, \kappa_2$. These DMs alternatives comparisons provide $A_1, \cdots, A_N$ three-dimensional Knowledge matrices compiled in a four-dimensional matrix $A$.
 
+#### III.3.1. Knowledge matrix
+Given a DM $i$, his knowledge matrix $A_i$ is a $m \times d \times d$ decision matrix containing the scores of focal elements proposed by DM $i$ under $m$ criteria, where $d$ is the cardinality of $\Phi \subset \Theta$, the set of all focal elements with a non-zero BPA. Under a criterion $k$, the knowledge matrix $A_i^k$ for DM $i$ is defined as follows : 
+```math
+\begin{pmatrix}
+    1 &0 &\cdots &0 &a_1 \cdot CPV(k)\\
+    0 &1 &\ddots &\vdots &a_2 \cdot CPV(k)\\
+    \vdots &\ddots &\ddots &0 &\vdots\\
+    0 &\cdots &0 1& &{a_{d-1} \cdot CPV(k)}\\
+    1/a_1 \cdot CPV(k) &1/a_2 \cdot CPV(k) &\cdots &1/a_{d-1} \cdot CPV(k) &1
+ \end{pmatrix}
+ ```
 
-
-
+```math
+A_i^k(j,l) = 
+\begin{cases}
+    1 & \text{if } j = l \\
+    0 & \text{if} j \in \]1,d\[ \text{and} l \in \]1,d\[\\
+    CPV(k) \times a_j & \text{if} j \in \]1,d\[ \text{and} l = d \\
+    1/
+\end{cases}
+```
 
 
 
