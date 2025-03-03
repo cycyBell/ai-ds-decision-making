@@ -212,11 +212,6 @@ It represents the confidence that a proposition y lies in A or any subset of A.
 In MCDMs, different DMs express their beliefs over the frame in terms of belief constraints such as in the case of expressing preferences. The problem now is how to combine those independent sets of probability mass assignments in specific situations. Dempster's rule of combination is the appropriate fusion operator used to derive common shared belief between multiple sources and ignores all the conflicting belief through a normalization factor.
 
 Given two sets of masses $m_1$ and $m_2$,  the combination (called the **joint mass**) $m_1 \oplus m_2 : 2^\Theta \to [0,1]$ is calculated in the following manner : 
-
-```math
-$[m_1 + m_2](y) = \begin{cases}0 &\text{if \(y=\emptyset\)} \\ \frac{\sum_{\mathcal{S_1} \cap \mathcal{S_2} = y}m_1(\mathcal{S_1})m_2(\mathcal{S_2})}{1 - \sum_{\mathcal{S_1} \cap \mathcal{S_2} = \emptyset}m_1(\mathcal{S_1})m_2(\mathcal{S_2}) } &\text{else}\end{cases}$
-```
-
 ```math
 [m_1 \oplus m_2](y) = 
 \begin{cases}
