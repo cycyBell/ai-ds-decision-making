@@ -230,8 +230,8 @@ Given a DM $i$, his knowledge matrix $A_i$ is a $m \times d \times d$ decision m
     1 &0 &\cdots &0 &a_1 \cdot CPV(k)\\
     0 &1 &\ddots &\vdots &a_2 \cdot CPV(k)\\
     \vdots &\ddots &\ddots &0 &\vdots\\
-    0 &\cdots &0 1& &{a_{d-1} \cdot CPV(k)}\\
-    1/a_1 \cdot CPV(k) &1/a_2 \cdot CPV(k) &\cdots &1/a_{d-1} \cdot CPV(k) &1
+    0 &\cdots &0 &1 &{a_{d-1} \cdot CPV(k)}\\
+    \frac{1}{a_1 \cdot CPV(k)} &\frac{1}{a_2 \cdot CPV(k)} &\frac{1}{a_{d-1} \cdot CPV(k)} &1
  \end{pmatrix}
  ```
 
