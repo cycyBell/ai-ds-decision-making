@@ -214,13 +214,13 @@ In MCDMs, different DMs express their beliefs over the frame in terms of belief 
 Given two sets of masses $m_1$ and $m_2$,  the combination (called the **joint mass**) $m_1 \oplus m_2 : 2^\Theta \to [0,1]$ is calculated in the following manner : 
 > $[m_1 + m_2](y) = \begin{cases}0 &\text{if \(y=\emptyset\)} \\ \frac{\sum_{\mathcal{S_1} \cap \mathcal{S_2} = y}m_1(\mathcal{S_1})m_2(\mathcal{S_2})}{1 - \sum_{\mathcal{S_1} \cap \mathcal{S_2} = \emptyset}m_1(\mathcal{S_1})m_2(\mathcal{S_2}) } &\text{else}\end{cases}$
 
-$$
+```math
 [m_1 \oplus m_2](y) = 
 \begin{cases}
     0 & \text{if } y = \emptyset \\
     \frac{\sum\limits_{\substack{S_1 \cap S_2 = y}} m_1(S_1) m_2(S_2)}{1 - \sum\limits_{\substack{S_1 \cap S_2 = \emptyset}} m_1(S_1) m_2(S_2)} & \text{otherwise}
 \end{cases}
-$$
+```
 
 
 
