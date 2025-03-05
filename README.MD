@@ -314,7 +314,7 @@ We set up our model assuming $\sigma$ is known, and instead of point estimating 
 
 - ***Maximum A Posteriori Inference***
 
-In this section, we point estimate the latent variables that maximize the posterior density using a method called MAP inference. In fact, MAP is an estimation procedure part of Bayesian statistics used to point estimate an unknown quantity, employing an optimization objective which incorporates a prior density over that quantity one wants to estimate. It's therefore a regularisation of the Maximum Likelihood Estimate. We do this by calculating the values of $\textbf{W}$ and $z$ that maximize the posterior density $P(\textbf{W,Z} \mid \mathcal{X}) \propto P(\textbf{W,Z, \mathcal{X}})$
+In this section, we point estimate the latent variables that maximize the posterior density using a method called MAP inference. In fact, MAP is an estimation procedure part of Bayesian statistics used to point estimate an unknown quantity, employing an optimization objective which incorporates a prior density over that quantity one wants to estimate. It's therefore a regularisation of the Maximum Likelihood Estimate. We do this by calculating the values of $\textbf{W}$ and $z$ that maximize the posterior density $P(\textbf{W,Z} \mid \mathcal{X}) \propto P(\textbf{W,Z,X})$
 
 
 
