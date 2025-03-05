@@ -142,7 +142,7 @@ An algorithm explaining these steps will be provided. However, it is essential t
 During the DMP, each DM performs a **pairwise comparison** of all criteria using the **1-9 scale value**. This results in a $m \times m$ matrix ($m$ for the total number of criteria), commonly known as Pairwise Comparison Matrix (PCM). For the purpose of implementation in this study, the PCM will be referred to as Pairwise comparison Tensor (PCT).
 
 #### II.2.1. The 1-9 Scale Value
-The 1-9 Scale Value, also called Saaty's scale, integer-based scoring system used to compare criteria in a structured manner. When comparing a criterion $i$ to a criterion $j$, the scale is interpreted as follws :
+The 1-9 Scale Value, also called Saaty's scale, is an integer-based scoring system used to compare criteria in a structured manner. When comparing a criterion $i$ to a criterion $j$, the scale is interpreted as follows :
 
  * A score of **1** indicates that the two criteria are equally important.  
  * A score greater than **1** (**2 to 9**) expresses the relative priority of criterion $i$ over criterion $j$.  
@@ -214,6 +214,8 @@ In the "Meet Me Half Way" tradeoff approach, during every consensus step, PCTs p
 **(c) Output**
 
 - $\Omega_{new}$ : An updated DMs' PCTs tensor.
+
+**CPV formula**
 
 The CPV of a criterion $i$ is determined as follows : 
 > $CPV(i) = \frac{1}{N \times m}\sum_{k = 1}^N \pi_k \sum_{l = 1}^m \Omega_{new}(k,i,l)$
