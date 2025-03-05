@@ -305,6 +305,18 @@ Assuming a GM posterior with $k$ components, there are k-dimensional latent vari
 
 The corresponding data point is generated via the following GM : 
 > $x_i \mid z_i \sim \sum_{l = 1}^k \phi_l N(\textbf{W}z_i^{(l)}, \sigma^2 \textbf{I})$
+Where : 
+ - $\phi$ is called the vector of mixing coefficents.
+
+We set up our model assuming $\sigma$ is known, and instead of point estimating $\textbf{W}$, as a model parameter, we place a prior over it in order to infer a distribution over principal axes.
+
+**c- Models Training**
+
+- ***Maximum A Posteriori Inference***
+
+In this section, we point estimate the latent variables that maximize the posterior density using a method called MAP inference. In fact, MAP is an estimation procedure part of Bayesian statistics used to point estimate an unknown quantity, employing an optimization objective which incorporates a prior density over that quantity one wants to estimate. It's therefore a regularisation of the Maximum Likelihood Estimate. We do this by calculating the values of $\textbf{W}$ and $z$ that maximize the posterior density $P(\textbf{W,Z} \mid \mathcal{X}) \propto P(\textbf{W,Z, \mathcal{X}})$
+
+
 
 
 
