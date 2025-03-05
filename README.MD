@@ -371,7 +371,26 @@ At the end of the training processes, four different tensors of principal axes a
 The DMs' data (CPVs and alternatives scores) are projected on those four tensors, and then each passed to an one-node perceptron whose weights are initialized with the projected CPVs. The four final models are then compared through criteria and DMs weights sensitivity analysis.
 
 ## IV. Results and Discusion
-![Loss](my_plot.png)
+
+
+<table>
+  <tr>
+    <td>
+      ![Loss1](my_plot.png)
+    </td>
+    <td>
+      ![Loss2](my_plot.png)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ![Loss3](my_plot.png)
+    </td>
+    <td>
+      ![Loss4](my_plot.png)
+    </td>
+  </tr>
+</table>
 
 
 
