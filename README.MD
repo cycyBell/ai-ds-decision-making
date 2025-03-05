@@ -290,11 +290,22 @@ The dataset consists of 450000 12-dimensional datapoints  representing the opini
 
 Consider a dataset $\mathcal{X} = x_1, \ldots, x_n$, where each datapoint is D-dimensional i.e $x_i \in \mathbb{R}^D$. For the dataset presented previously, $n = 450000$ and $D = 12$. Our goal is to represent $x_i$ under a latent variable $z_i \in \mathbb{R}^K$ with lower dimension, $K \leq D$. The set of **principal axes** $\textbf{W}$ relates the latent variables to the data.
 
+***Simple normal posterior***
+
 Specifically, we assume that each latent variable is normally distributed,
 > $z_i \sim N(0, \textbf{I})$
 
 The corresponding data point is generated via a projection,
 > $x_i \mid z_i \sim N(\textbf{W}z_i, \sigma^2 \textbf{I})$
+
+***Gaussian Mixture (GM) posterior***
+
+Assuming a GM posterior with $k$ components, there are k-dimensional latent variable $z_i$ for each datapoint $x_i$ distributed as follows : 
+> $z_i^{(l)} \sim N(0, \textbf{I}) \quad l = 1, \ldots, k$ 
+
+The corresponding data point is generated via the following GM : 
+> $x_i \mid z_i \sim \sum_{l = 1}^k \phi_l N(\textbf{W}z_i^{(l)}, \sigma^2 \textbf{I})$
+
 
 
 
