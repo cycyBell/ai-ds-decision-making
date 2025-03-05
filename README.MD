@@ -43,28 +43,28 @@ The overwhelming volume of applications and the complexity of evaluating candida
 
 Develop and implement a multicriteria decision-making algorithm that:
 
-$\checkmark$ Evaluates 45,000 scholarship applications based on 12 pre-defined criteri;
-$\checkmark$ Facilitates the consensus-building process among 10 decision-makers;
-$\checkmark$ Identifies the 100 most deserving candidates who best satisfy the weighted criteria;
-$\checkmark$ Provides a clear and justifiable ranking of all applicants;
-$\checkmark$ Handles potential inconsistencies and conflicts in DMs' evaluations.
+$\checkmark$ Evaluates 45,000 scholarship applications based on 12 pre-defined criteri;<br>
+$\checkmark$ Facilitates the consensus-building process among 10 decision-makers;<br>
+$\checkmark$ Identifies the 100 most deserving candidates who best satisfy the weighted criteria;<br>
+$\checkmark$ Provides a clear and justifiable ranking of all applicants;<br>
+$\checkmark$ Handles potential inconsistencies and conflicts in DMs' evaluations.<br>
 
 - **Criteria**:
 
 The 12 evaluation criteria are as follows:
 
-$\checkmark$ Academic Merit: Cumulative GPA;
-$\checkmark$ Extracurricular Involvement: Participation in organizations, and volunteer activities;
-$\checkmark$ Leadership Potential;
-$\checkmark$ Community Impact;
-$\checkmark$ Innovation and Creativity;
-$\checkmark$ Financial Need;
-$\checkmark$ Personal Statement Quality: Clarity, and persuasiveness of the applicant's personal statement.
-$\checkmark$ Letters of Recommendation;
-$\checkmark$ Alignment with Foundation's Mission;
-$\checkmark$ Research Potential;
-$\checkmark$ Communication Skills;
-$\checkmark$ Diversity and Inclusion.
+$\checkmark$ Academic Merit: Cumulative GPA;<br>
+$\checkmark$ Extracurricular Involvement: Participation in organizations, and volunteer activities;<br>
+$\checkmark$ Leadership Potential;<br>
+$\checkmark$ Community Impact;<br>
+$\checkmark$ Innovation and Creativity;<br>
+$\checkmark$ Financial Need;<br>
+$\checkmark$ Personal Statement Quality: Clarity, and persuasiveness of the applicant's personal statement;<br>
+$\checkmark$ Letters of Recommendation;<br>
+$\checkmark$ Alignment with Foundation's Mission;<br>
+$\checkmark$ Research Potential;<br>
+$\checkmark$ Communication Skills;<br>
+$\checkmark$ Diversity and Inclusion.<br>
 
 ## II. Prior Analysis
 While this section may appear straightforward to some, these fundamental details provided are essential for downstream tasks.
