@@ -381,7 +381,7 @@ The DMs' data (CPVs and alternatives scores) are projected on those four tensors
       <td><img src="my_plot.png" alt="Loss Plot 2" width="300"></td>
     </tr>
     <tr>
-      <td><img src="my_plot.png alt="Loss Plot 3" width="300"></td>
+      <td><img src="my_plot.png" alt="Loss Plot 3" width="300"></td>
       <td><img src="my_plot.png" alt="Loss Plot 4" width="300"></td>
     </tr>
   </table>
