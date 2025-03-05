@@ -318,7 +318,7 @@ In this section, we point estimate the latent variables that maximize the poster
 
 - ***Variational Inference (VI)***
 
-In this section, another optimization method, the VI, is used to approximate the posterior distribution $P(\textbf{W,Z} \mid \mathcal{X})$ using a variational distribution $Q(\textbf{W,Z})$ parameterised by $\rho$. The similarity (or dissimilarity) is measured in terms of a dissimilarity function $d(Q,P)$, commonly the KL divergence $KL(Q(\textbf{W,Z}) \mid \mid $P(\textbf{W,Z} \mid \mathcal{X}) )$. The inference is performed by selecting the distribution $Q(\textbf{W,Z})$ that minimizes $d(Q,P)$ or maximizes the evidence lower bound $\mathbb{E}_{Q(\textbf{W,Z;} \rho)}[logP(\textbf{W,Z,X}) - logQ(\textbf{W,Z;} \rho)]$.
+In this section, another optimization method, the VI, is used to approximate the posterior distribution $P(\textbf{W,Z} \mid \mathcal{X})$ using a variational distribution $Q(\textbf{W,Z})$ parameterised by $\rho$. The similarity (or dissimilarity) is measured in terms of a dissimilarity function $d(Q,P)$, commonly the KL divergence $KL(Q(\textbf{W,Z}) \mid \mid P(\textbf{W,Z} \mid \mathcal{X}) )$. The inference is performed by selecting the distribution $Q(\textbf{W,Z})$ that minimizes $d(Q,P)$ or maximizes the evidence lower bound $\mathbb{E}_{Q(\textbf{W,Z;} \rho)}[logP(\textbf{W,Z,X}) - logQ(\textbf{W,Z;} \rho)]$.
 
 
 
