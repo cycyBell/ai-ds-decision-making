@@ -182,7 +182,7 @@ The CPV of a criterion $i$ is determined as follows :
 
 ## III. Overview of the classical DS/AHP method
 
-Investigating the general mathematical formulation of DS/AHP is paramount for the consideration of its analytic structure within the modern ML-based approach. Many papers describe the blueprint basic principles of DS/AHP including its mathematical thorough analysis. However, for the sake of brievety and consistency, the only important fundamental aspects of DST are described which are necessary for the tasks down the line. 
+Investigating the general mathematical formulation of DS/AHP is paramount for the consideration of its analytic structure within the modern ML-based approach. Numerous studies have explored the basic to core of DS/AHP providing in-depth mathematical analyses. However, for the sake of brievety and consistency, the only important fundamental aspects of DST are described which are necessary for the tasks down the line. 
 ### III.1. Important definitions
 **a. Frame of discernment**
 
@@ -220,11 +220,12 @@ Given two sets of masses $m_1$ and $m_2$,  the combination (called the **joint m
 \end{cases}
 ```
 ### III.3. DS/AHP algorithm
-Let's say, we have a DMP involving $N$ DMs, $n$ alternatives subject to $m$ criteria
-In DS/AHP method, after deriving the DMs and criteria priority values, an analysis is then conducted on alternatives to output the final ranks based on these priority values and alternatives scores (obtained via DMs alternatives comparisons under each criterion). Unlike the pairwise criteria comparisons where criteria are compared between them, alternatives are directly compared to the frame of discernment $\Theta$, the set of all possible alternatives, using a second scale range $1,\cdots, \kappa_2$. These DMs alternatives comparisons provide $A_1, \cdots, A_N$ three-dimensional Knowledge matrices compiled in a four-dimensional matrix $A$.
+Consider a DMP involving $N$ DMs, $n$ alternatives subject to $m$ criteria.
+
+In DS/AHP method, after deriving the DMs and criteria priority values, the next step is to analyze the alternatives in order to derive their final rankings based on these priority values and alternatives scores (obtained via DMs alternatives comparisons under each criterion).Unlike the pairwise criteria comparisons, where criteria are compared against each other, alternatives are directly evaluated against the frame of discernment $\Theta$, the set of all possible alternatives, using a second scale range $1,\cdots, \kappa_2$. These DMs alternative comparisons result in a set of three-dimensional Knowledge matrices $A_1, \cdots, A_N$, which are then  compiled into a N-items dictionary $A$.
 
 #### III.3.1. Knowledge matrix
-Given a DM $i$, his knowledge matrix $A_i$ is a $m \times d \times d$ decision matrix containing the scores of focal elements proposed by DM $i$ under $m$ criteria, where $d$ is the cardinality of $\Phi \subset \Theta$, the set of all focal elements with a non-zero BPA. Under a criterion $k$, the knowledge matrix $A_i^k$ for DM $i$ is defined as follows : 
+Given a DM $i$, his knowledge matrix $A_i$ is a $m \times d \times d$ decision matrix storing the scores of focal elements proposed by DM $i$ under $m$ criteria, where $d$ is the cardinality of $\Phi \subset \Theta$, the set of all focal elements with a non-zero BPA. Under a criterion $k$, the knowledge matrix $A_i^k$ for DM $i$ is defined as follows : 
 ```math
 A_i^k = 
 \begin{pmatrix}
@@ -244,7 +245,72 @@ The normalised values within the eigenvector defined by $(x_1 x_2, \ldots, x_d )
 
 $x_j = \frac{A_i^{k}(j,d)}{\sum_{l=1}^{d-1}A_i^{k}(l,d) + \sqrt{d-1}}$ and $x_d = \frac{\sqrt{d-1}}{\sum_{l=1}^{d-1}A_i^{k}(l,d) + \sqrt{d-1}}$
 
-The values $xj = (x_1, x_2, \ldots, x_{d-1} )$ and $x_{d}$ constructed can be directly considered the BPA values for $d-1$ groups of DA and $\Theta$,respectively,when the matrix  $A_i^{k}$ is a knowledge matrix.
+The values $xj = (x_1, x_2, \ldots, x_{d-1} )$ and $x_{d}$ constructed can be directly considered the BPA or mass values for $d-1$ groups of DA and $\Theta$,respectively,when the matrix  $A_i^{k}$ is a knowledge matrix.
+The set of all focal elements $\Phi$ associated with their respective BPAs is called a ***Body Of Evidence*** (BOE).
+#### III.3.2. DS/AHP algorithm
+
+**(a) Inputs** : 
+
+- $\A$ : a dictionary containing $N$ three-dimensional matrices, $m \times d^{*} \times d^{*}$, where $d^{*}$ may vary across DMs;
+- $\kappa_2$ : Maximum value in the second scale range ($\kappa_2 = 9$ in the 1-9 Saaty's scale);
+- $CPV$ : a vector of criteria priority values;
+
+**(b) DS/AHP pass**
+
+(1) Compute the BPAs of each focal element under each criteria for all DMs to get DMs' Bodies of evidence (BOEs);
+
+(2) Combine all BOEs across different criteria to get one BOE per DM;
+
+(3) Merge all DMs' BOEs to generate a unified BOE that integrates all available information;
+
+(4) Compute the belief values associated with each focal element within the combined BOE;
+
+(5) Compute the plausibility values associated with each focal element within the combined BOE;
+
+(6) Rank focal elements (DAs groups) based on their Belief and Plausibility values;
+
+
+**(c) Output**
+
+- Final ranking of all decision alternative (DA) groups.
+
+## III. ML-based approach for DS/AHP
+### III.1 Methodology and Implementation
+The methodology employed in this study systematically involved the use of a rigorous experimental setup leveraging both theoritical foundations and empirical analysis, which were designed to tackle the complexity of the MCDM. We first made use of Tensorflow Probability (TFP) to construct a robust probabilistic PCA framework that enables flexible, uncertainty-aware feature extraction by employing a probabilistic approach based on a mixture of Gaussians posterior trained using Variational Inference (VI) and Maximum A Posteriori (MAP). The inferred **Principal Axes** will be then easily used to analyse DMs preferences via a lower dimensional latent space.
+
+The training task employed the Adam optimizer, a widely popular optimization algorithm in machine learning, specifically designed for the training of deep neural networks. In addressing the probabilistic nature of the problem, we chose the negative log-prob function as the loss function. This particular loss function is well-suited for scenarios where measuring uncertainty is key to assess how well a model's predicted probabilities reflect the true distribution of the data.
+
+To thoroughly evaluate and refine our models, we trained them over a maximum of 250 epochs. This variability allowed us to monitor the learning curves and performance improvements over time, enabling us to identify the optimal training duration for each model.
+
+**a- Dataset**
+
+The dataset consists of 450000 12-dimensional datapoints  representing the opinions of 10 fictitious DMs on 45000 alternatives under 12 criteria. The whole dataset served as the foundation for training the PPCA model.
+
+**b- Model architecture**
+
+Consider a dataset $\mathcal{X} = x_1, \ldots, x_n$, where each datapoint is D-dimensional i.e $x_i \in \mathbb{R}^D$. For the dataset presented previously, $n = 450000$ and $D = 12$. Our goal is to represent $x_i$ under a latent variable $z_i \in \mathbb{R}^K$ with lower dimension, $K \leq D$. The set of **principal axes** $\textbf{W}$ relates the latent variables to the data.
+
+Specifically, we assume that each latent variable is normally distributed,
+> $z_i \sim N(0, \textbf{I})$
+
+The corresponding data point is generated via a projection,
+> $x_i \mid z_i \sim N(\textbf{W}z_i, \sigma^2 \textbf{I})$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
