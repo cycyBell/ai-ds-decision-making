@@ -27,6 +27,44 @@ Before moving forward with this study, it's crucial for every reader to kwow tha
 
 
 Other background understandings are implied but non-negligeable. {Joke} There is no mention of DST or DS/AHP because the brief overview presented afterwards will be enough to stay synced.
+## I. Case of study
+
+### I.1. Problem Statement: Optimizing Scholarship Award Allocation
+
+- **Context**:
+
+A prestigious educational instituion has received an overwhelming number of applications for its annual scholarship program. This year, the foundation aims to award 100 scholarships to exceptionally deserving candidates from a total of 45,000 applicants. The selection process must be rigorous, transparent, and fair, ensuring that the scholarships are allocated to those who best align with the institution's mission, requirements and values.
+
+- **Challenge**:
+
+The overwhelming volume of applications and the complexity of evaluating candidates based on diverse criteria necessitate a strong and efficient decision-making framework. To ensure an equitable distribution of scholarships, the foundation has invited 10 decision-makers, each with expertise in different areas relevant to the scholarship criteria.
+
+- **Objective**:
+
+Develop and implement a multicriteria decision-making algorithm that:
+
+$\checkmark$ Evaluates 45,000 scholarship applications based on 12 pre-defined criteri;
+$\checkmark$ Facilitates the consensus-building process among 10 decision-makers;
+$\checkmark$ Identifies the 100 most deserving candidates who best satisfy the weighted criteria;
+$\checkmark$ Provides a clear and justifiable ranking of all applicants;
+$\checkmark$ Handles potential inconsistencies and conflicts in DMs' evaluations.
+
+- **Criteria**:
+
+The 12 evaluation criteria are as follows:
+
+$\checkmark$ Academic Merit: Cumulative GPA;
+$\checkmark$ Extracurricular Involvement: Participation in organizations, and volunteer activities;
+$\checkmark$ Leadership Potential;
+$\checkmark$ Community Impact;
+$\checkmark$ Innovation and Creativity;
+$\checkmark$ Financial Need;
+$\checkmark$ Personal Statement Quality: Clarity, and persuasiveness of the applicant's personal statement.
+$\checkmark$ Letters of Recommendation;
+$\checkmark$ Alignment with Foundation's Mission;
+$\checkmark$ Research Potential;
+$\checkmark$ Communication Skills;
+$\checkmark$ Diversity and Inclusion.
 
 ## II. Prior Analysis
 While this section may appear straightforward to some, these fundamental details provided are essential for downstream tasks.
