@@ -251,7 +251,7 @@ The set of all focal elements $\Phi$ associated with their respective BPAs is ca
 
 **(a) Inputs** : 
 
-- $\A$ : a dictionary containing $N$ three-dimensional matrices, $m \times d^{*} \times d^{*}$, where $d^{*}$ may vary across DMs;
+- $A$ : a dictionary containing $N$ three-dimensional matrices, $m \times d^{*} \times d^{*}$, where $d^{*}$ may vary across DMs;
 - $\kappa_2$ : Maximum value in the second scale range ($\kappa_2 = 9$ in the 1-9 Saaty's scale);
 - $CPV$ : a vector of criteria priority values;
 
@@ -319,6 +319,19 @@ In this section, we point estimate the latent variables that maximize the poster
 - ***Variational Inference (VI)***
 
 In this section, another optimization method, the VI, is used to approximate the posterior distribution $P(\textbf{W,Z} \mid \mathcal{X})$ using a variational distribution $Q(\textbf{W,Z})$ parameterised by $\rho$. The similarity (or dissimilarity) is measured in terms of a dissimilarity function $d(Q,P)$, commonly the KL divergence $KL(Q(\textbf{W,Z}) \mid \mid P(\textbf{W,Z} \mid \mathcal{X}) )$. The inference is performed by selecting the distribution $Q(\textbf{W,Z})$ that minimizes $d(Q,P)$ or maximizes the evidence lower bound $\mathbb{E}_{Q(\textbf{W,Z;} \rho)}[logP(\textbf{W,Z,X}) - logQ(\textbf{W,Z;} \rho)]$.
+
+**d- Alternative rankings**
+
+At the end of the training processes, four different tensors of principal axes are inferred :
+- $W_{NM}$ : inferred using a simple normal posterior trained with MAP
+- $W_{NV}$ : inferred using a simple normal posterior trained with VI
+- $W_{GM}$ : inferred using a Gaussian Mixture posterior trained with MAP
+- $W_{GV}$ : inferred using a Gaussian Mixture posterior trained with VI
+
+The DMs' data (CPVs and alternatives scores) are projected on those four tensors, and then each passed to an one-node perceptron whose weights are initialized with the projected CPVs. The four final models are then compared through criteria and DMs weights sensitivity analysis.
+
+## IV. Results and Discusion
+
 
 
 
