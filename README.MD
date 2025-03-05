@@ -222,7 +222,7 @@ The CPV of a criterion $i$ is determined as follows :
 
 ## III. Overview of the classical DS/AHP method
 
-Investigating the general mathematical formulation of DS/AHP is paramount for the consideration of its analytic structure within the modern ML-based approach. Numerous studies have explored the basic to core of DS/AHP providing in-depth mathematical analyses. However, for the sake of brievety and consistency, the only important fundamental aspects of DST are described which are necessary for the tasks down the line. 
+Investigating the general mathematical formulation of DS/AHP is paramount for the consideration of its analytic structure within the modern ML-based approach. Numerous studies have explored the basic to core principle of DS/AHP providing in-depth mathematical analyses. However, for the sake of brievety and consistency, the only important fundamental aspects of DST are described which are necessary for the tasks down the line. 
 ### III.1. Important definitions
 **a. Frame of discernment**
 
