@@ -320,11 +320,11 @@ The methodology employed in this study systematically involved the use of a rigo
 
 The training task employed the Adam optimizer, a widely popular optimization algorithm in machine learning, specifically designed for the training of deep neural networks. In addressing the probabilistic nature of the problem, we chose the negative log-prob function as the loss function. This particular loss function is well-suited for scenarios where measuring uncertainty is key to assess how well a model's predicted probabilities reflect the true distribution of the data.
 
-To thoroughly evaluate and refine our models, we trained them over a maximum of 250 epochs. This variability allowed us to monitor the learning curves and performance improvements over time, enabling us to identify the optimal training duration for each model.
+To thoroughly evaluate and refine our models, we trained them over a maximum of 500 epochs. This variability allowed us to monitor the learning curves and performance improvements over time, enabling us to identify the optimal training duration for each model.
 
 **a- Dataset**
 
-The dataset consists of 450000 12-dimensional datapoints  representing the opinions of 10 fictitious DMs on 45000 alternatives under 12 criteria. The whole dataset served as the foundation for training the PPCA model.
+The dataset consists of 450000 12-dimensional datapoints, representing the opinions of 10 fictitious DMs on 45000 alternatives under 12 criteria. The whole dataset served as the foundation for training the PPCA model.
 
 **b- Model architecture**
 
@@ -350,6 +350,32 @@ Where :
 
 We set up our model assuming $\sigma$ is known, and instead of point estimating $\textbf{W}$, as a model parameter, we place a prior over it in order to infer a distribution over principal axes.
 
+<div align="center">
+  <h2>Table 1 : PPCA models' variables</h1>
+  <table>
+    <tr>
+      <td>Variable</td>
+      <td>Description</td>
+      <td>Shape</td>
+      <td>Distribution</td>
+      <td>Init value</td>
+    </tr>
+    <tr>
+      <td>$\texbf{W}$</td>
+      <td>Principal axes</td>
+      <td>(Data_dim, Latent_dim)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
 **c- Models Training**
 
 - ***Maximum A Posteriori Inference***
@@ -368,11 +394,59 @@ At the end of the training processes, four different tensors of principal axes a
 - $W_{GM}$ : inferred using a Gaussian Mixture posterior trained with MAP
 - $W_{GV}$ : inferred using a Gaussian Mixture posterior trained with VI
 
-The DMs' data (CPVs and alternatives scores) are projected on those four tensors, and then each passed to an one-node perceptron whose weights are initialized with the projected CPVs. The four final models are then compared through criteria and DMs weights sensitivity analysis.
+The DMs' data (CPVs and alternatives scores) are projected on those four tensors, and then each passed to an one-layer perceptron whose weights are initialized with the projected CPVs. The four final models are then compared through criteria and DMs weights sensitivity analysis.
 
 ## IV. Results and Discussion
+In this section, we present the experimental results of the models across different training scenarios. The principal metrics used to assess each model's performance encompass : training losses, models' sensitivity analysis and graphical methods including sensitivity graphs, visual observations of the overlapping of actual data and simulated data. 
+### IV.1. Loss functions
+In this study, we've made different choices on the primary loss functions  for evaluating the models' performmances explaining the variability of the models used :
+**(a) Consensus building loss function**
+For this algorithm, we've chosen to utilize the function of distances measuring the overall distance between DMs' evaluations on criteria weight matrices. This function is defined as follows : 
+> $\mathcal{L}(\Omega_{\nu}) = \frac{1}{2}\sum_{i=1}^{N-1}\sum_{j=i+1}^N\parallel\Omega_{\nu}(i) - \Omega_{\nu}(j)\parallel$
 
-## Loss Plots
+Where :
+- $\Omega_{\nu}$ is the tensor containing the updated DMs' PCTs at that training step;
+- N : total number of DMs;
+- $\parallel \hspace{0.5cm} \parallel$ : the Frobenius norm.
+The distance loss provides a clear and intuitive interpretation of the consensus building model's performance by achieving the consensus reaching through distance minimization. By updating the pair of DMs' PCTs with the highest distance, the distance loss is assured to converge, and the convergence rate is controlled by the consensus level. A consensus process with a consensus level closer to 1 takes fewer steps to converge than others.
+
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="cons_loss.png" alt="Consensus Loss Plot"></td>
+    </tr>
+  </table>
+  <h2>Figure 1 : Consensus training loss</h1>
+</div>
+
+A striking observation of the loss function's variation curve during the training process indicates that the loss function experiences a rapid drop in the 15 early stages of the training process from over 1300, quickly declining to a value under 200.  Following this initial observation, the distance loss stabilizes, ultimately reaching a value close to 0. This crucial stability shows that our model has notably reached a substantial consensus agreement between DMs, demonstrating an enhanced stability in the learned representations.
+
+**(b) PPCA training losses**
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="n_map_loss.png" alt="Normal PPCA Loss Plot (MAP)"></td>
+      <td><img src="gm_map_loss.png" alt="GM PPCA Loss Plot (MAP)"></td>
+    </tr>
+  </table>
+  <h2>Figure 2 : PPCA training losses with MAP inference</h1>
+</div>
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="n_vi_loss.png" alt="Normal PPCA Loss Plot (MAP)"></td>
+      <td><img src="gmm_vi_loss.png" alt="GM PPCA Loss Plot (MAP)"></td>
+    </tr>
+  </table>
+  <h2>Figure 3 : PPCA training losses with variational inference</h1>
+</div>
+
+
+
+
+
+
 
 <div align="center">
   <table>
