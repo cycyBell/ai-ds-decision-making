@@ -414,7 +414,7 @@ The distance loss provides a clear and intuitive interpretation of the consensus
 <div align="center">
   <table>
     <tr>
-      <td><img src="cons_loss.png" alt="Consensus Loss Plot"></td>
+      <td><img src="images/cons_loss.png" alt="Consensus Loss Plot"></td>
     </tr>
   </table>
   <h2>Figure 1 : Consensus training loss</h1>
@@ -426,8 +426,8 @@ A striking observation of the loss function's variation curve during the trainin
 <div align="center">
   <table>
     <tr>
-      <td><img src="n_map_loss.png" alt="Normal PPCA Loss Plot (MAP)"></td>
-      <td><img src="gm_map_loss.png" alt="GM PPCA Loss Plot (MAP)"></td>
+      <td><img src="images/n_map_loss.png" alt="Normal PPCA Loss Plot (MAP)"></td>
+      <td><img src="images/gm_map_loss.png" alt="GM PPCA Loss Plot (MAP)"></td>
     </tr>
   </table>
   <h2>Figure 2 : PPCA training losses with MAP inference</h1>
@@ -435,8 +435,8 @@ A striking observation of the loss function's variation curve during the trainin
 <div align="center">
   <table>
     <tr>
-      <td><img src="n_vi_loss.png" alt="Normal PPCA Loss Plot (MAP)"></td>
-      <td><img src="gmm_vi_loss.png" alt="GM PPCA Loss Plot (MAP)"></td>
+      <td><img src="images/n_vi_loss.png" alt="Normal PPCA Loss Plot (MAP)"></td>
+      <td><img src="images/gmm_vi_loss.png" alt="GM PPCA Loss Plot (MAP)"></td>
     </tr>
   </table>
   <h2>Figure 3 : PPCA training losses with variational inference</h1>
@@ -451,12 +451,12 @@ A striking observation of the loss function's variation curve during the trainin
 <div align="center">
   <table>
     <tr>
-      <td><img src="my_plot.png" alt="Loss Plot 1" width="300"></td>
-      <td><img src="my_plot.png" alt="Loss Plot 2" width="300"></td>
+      <td><img src="images/my_plot.png" alt="Loss Plot 1" width="300"></td>
+      <td><img src="images/my_plot.png" alt="Loss Plot 2" width="300"></td>
     </tr>
     <tr>
-      <td><img src="my_plot.png" alt="Loss Plot 3" width="300"></td>
-      <td><img src="my_plot.png" alt="Loss Plot 4" width="300"></td>
+      <td><img src="images/my_plot.png" alt="Loss Plot 3" width="300"></td>
+      <td><img src="images/my_plot.png" alt="Loss Plot 4" width="300"></td>
     </tr>
   </table>
 </div>
