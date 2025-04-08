@@ -471,27 +471,16 @@ In this section, we visualize the overlap between the generated and original dec
   <h2>Figure 5 : Overlap Between Generated and Real Data with variational inference</h1>
 </div>
 
+Our analysis reveals an intriguing correlation between the training inference method and the choice of the PPCA model's prior distribution. We notice in **Figure 4** and **Figure 5** that the PPCA model with simple normal prior distribution only performs well with Variational Inference method. Unlike the model with simple normal prior distribution, PPCA model's decision data reconstruction fidelity with Gaussian Mixture prior is remarkably outstanding whatever the training inference method chosen. This remark underscores the effectiveness and robustness of the GM prior, well-suited for this problem.
 
+**(b) Sensitivity Analysis**
+To evaluate the robustness of the final rankings with respect to criteria weights shifts, we introduce a new metric termed **Sensitivity Index (SI)** that quantifies how sensitive the model’s output is to changes in the criteria priority values (CPVs). The goal is to assess whether small variations in the weights significantly impact the rankings of alternative**s, which would indicate instability or a strong dependency on certain criteria. 
 
-
-
-
-
-<div align="center">
-  <table>
-    <tr>
-      <td><img src="public/images/my_plot.png" alt="Loss Plot 1" width="300"></td>
-      <td><img src="public/images/my_plot.png" alt="Loss Plot 2" width="300"></td>
-    </tr>
-    <tr>
-      <td><img src="public/images/my_plot.png" alt="Loss Plot 3" width="300"></td>
-      <td><img src="public/images/my_plot.png" alt="Loss Plot 4" width="300"></td>
-    </tr>
-  </table>
-</div>
-
-
-
+- Definition of Sensitivity Index
+The sensitivity index is defined as follows:
+$$
+\mathbf{SI} = \frac{1}{n\cdot N}\sum_{i=1}^N \sum_{j=1}^n \frac{|\sum_{k=1}^n S_k^{(i)}-nS_j^{(i)}|}{\sigma}
+$$
 
 
 
