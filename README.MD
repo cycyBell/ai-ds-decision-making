@@ -414,7 +414,7 @@ The distance loss provides a clear and intuitive interpretation of the consensus
 <div align="center">
   <table>
     <tr>
-      <td><img src="images/cons_loss.png" alt="Consensus Loss Plot"></td>
+      <td><img src="public/images/cons_loss.png" alt="Consensus Loss Plot"></td>
     </tr>
   </table>
   <h2>Figure 1 : Consensus training loss</h1>
