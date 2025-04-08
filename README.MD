@@ -402,6 +402,7 @@ In this section, we present the experimental results of the models across differ
 In this study, we've made different choices on the primary loss functions  for evaluating the models' performmances explaining the variability of the models used :
 
 **(a) Consensus building loss function**
+
 For this algorithm, we've chosen to utilize the function of distances measuring the overall distance between DMs' evaluations on criteria weight matrices. This function is defined as follows : 
 > $\mathcal{L}(\Omega_{\nu}) = \frac{1}{2}\sum_{i=1}^{N-1}\sum_{j=i+1}^N\parallel\Omega_{\nu}(i) - \Omega_{\nu}(j)\parallel$
 
@@ -425,6 +426,7 @@ The distance loss provides a clear and intuitive interpretation of the consensus
 A striking observation of the loss function's variation curve during the training process indicates that the loss function experiences a rapid drop in the 15 early stages of the training process from over 1300, quickly declining to a value under 200.  Following this initial observation, the distance loss stabilizes, ultimately reaching a value close to 0. This crucial stability shows that our model has notably reached a substantial consensus agreement between DMs, demonstrating an enhanced stability in the learned representations.
 
 **(b) PPCA training losses**
+
 The probabilistic PCA is trained using the negative log-likelihood loss that assesses  the quality of the model's uncertainty quantification. By making use of this loss function, we somehow infer the principal axes, by  maximizing the probability of reconstructing the original decision data from those axes Through Variational Inference and Maximum A Posteriori methods.
 <div align="center">
   <table>
@@ -450,6 +452,7 @@ The results show a trend where the trained models reduce in loss as the number o
 ### IV.2. Evaluation metrics for models comparison
 
 **(a) Visual Evaluation of Data Generation Quality**
+
 In this section, we visualize the overlap between the generated and original decision data to assess the performance of the data generation part of the models, thus, the reliability of inferred principal axes. By plotting both data, real and generated, in a common space, we can visually inspect how well the reconstructed samples capture the structure and variability of the original data. Significant overlap indicates high fidelity in generation, while divergence testifies model limitations.
 
 <div align="center">
@@ -474,13 +477,27 @@ In this section, we visualize the overlap between the generated and original dec
 Our analysis reveals an intriguing correlation between the training inference method and the choice of the PPCA model's prior distribution. We notice in **Figure 4** and **Figure 5** that the PPCA model with simple normal prior distribution only performs well with Variational Inference method. Unlike the model with simple normal prior distribution, PPCA model's decision data reconstruction fidelity with Gaussian Mixture prior is remarkably outstanding whatever the training inference method chosen. This remark underscores the effectiveness and robustness of the GM prior, well-suited for this problem.
 
 **(b) Sensitivity Analysis**
+
 To evaluate the robustness of the final rankings with respect to criteria weights shifts, we introduce a new metric termed **Sensitivity Index (SI)** that quantifies how sensitive the model’s output is to changes in the criteria priority values (CPVs). The goal is to assess whether small variations in the weights significantly impact the rankings of alternative**s, which would indicate instability or a strong dependency on certain criteria. 
 
 - Definition of Sensitivity Index
+
 The sensitivity index is defined as follows:
-$$
-\mathbf{SI} = \frac{1}{n\cdot N}\sum_{i=1}^N \sum_{j=1}^n \frac{|\sum_{k=1}^n S_k^{(i)}-nS_j^{(i)}|}{\sigma}
-$$
+```math
+\mathbf{SI} = \frac{1}{n\cdot N}\sum_{i=1}^N \sum_{j=1}^n \frac{|\sum_{k=1}^n S_k^{(i)}-nS_j^{(i)}|}{\delta}
+```
+
+Where:
+  - $N$ is the total number of alternatives;
+  - $n$ is the number of scenarios, each corresponding to the weight shift of one of the $n$ criteria;
+  - $S_k^{(i)}$ is the final score of alternative $i$ when shifting the weight of criterion $k$.
+  - $\delta$  is the magnitude of the shift applied to criteria
+
+  This index captures the average deviation in alternative scores across different weight perturbation scenarios.
+- **Procedure**
+  1. **Shift Scheme**: Apply a small shift $\delta$(e.g., ±5%) to each criterion weight while adjusting the rest to maintain normalization;
+  2. **Run the Model**: Compute the alternative rankings for the different scenarios;
+  3. **Analyse sensitivity**: Compute sensitivity index.
 
 
 
