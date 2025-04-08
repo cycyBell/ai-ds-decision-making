@@ -484,7 +484,7 @@ To evaluate the robustness of the final rankings with respect to criteria weight
 
 The sensitivity index is defined as follows:
 ```math
-\mathbf{SI} = \frac{1}{n\cdot N}\sum_{i=1}^N \sum_{j=1}^n \frac{|\sum_{k=1}^n S_k^{(i)}-nS_j^{(i)}|}{\delta}
+\mathbf{SI} = \frac{1}{n\cdot N}\sum_{i=1}^N \sum_{j=1}^n \frac{\Big |\sum_{k=1}^n S_k^{(i)}-nS_j^{(i)}\Big |}{\delta}
 ```
 
 Where:
