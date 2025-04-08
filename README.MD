@@ -400,6 +400,7 @@ The DMs' data (CPVs and alternatives scores) are projected on those four tensors
 In this section, we present the experimental results of the models across different training scenarios. The principal metrics used to assess each model's performance encompass : training losses, models' sensitivity analysis and graphical methods including sensitivity graphs, visual observations of the overlapping of actual data and simulated data. 
 ### IV.1. Loss functions
 In this study, we've made different choices on the primary loss functions  for evaluating the models' performmances explaining the variability of the models used :
+
 **(a) Consensus building loss function**
 For this algorithm, we've chosen to utilize the function of distances measuring the overall distance between DMs' evaluations on criteria weight matrices. This function is defined as follows : 
 > $\mathcal{L}(\Omega_{\nu}) = \frac{1}{2}\sum_{i=1}^{N-1}\sum_{j=i+1}^N\parallel\Omega_{\nu}(i) - \Omega_{\nu}(j)\parallel$
@@ -408,6 +409,7 @@ Where :
 - $\Omega_{\nu}$ is the tensor containing the updated DMs' PCTs at that training step;
 - N : total number of DMs;
 - $\parallel \hspace{0.5cm} \parallel$ : the Frobenius norm.
+
 The distance loss provides a clear and intuitive interpretation of the consensus building model's performance by achieving the consensus reaching through distance minimization. By updating the pair of DMs' PCTs with the highest distance, the distance loss is assured to converge, and the convergence rate is controlled by the consensus level. A consensus process with a consensus level closer to 1 takes fewer steps to converge than others.
 
 
@@ -423,6 +425,7 @@ The distance loss provides a clear and intuitive interpretation of the consensus
 A striking observation of the loss function's variation curve during the training process indicates that the loss function experiences a rapid drop in the 15 early stages of the training process from over 1300, quickly declining to a value under 200.  Following this initial observation, the distance loss stabilizes, ultimately reaching a value close to 0. This crucial stability shows that our model has notably reached a substantial consensus agreement between DMs, demonstrating an enhanced stability in the learned representations.
 
 **(b) PPCA training losses**
+The probabilistic PCA is trained using the negative log-likelihood loss that assesses  the quality of the model's uncertainty quantification. By making use of this loss function, we somehow infer the principal axes, by  maximizing the probability of reconstructing the original decision data from those axes Through Variational Inference and Maximum A Posteriori methods.
 <div align="center">
   <table>
     <tr>
@@ -440,6 +443,32 @@ A striking observation of the loss function's variation curve during the trainin
     </tr>
   </table>
   <h2>Figure 3 : PPCA training losses with variational inference</h1>
+</div>
+
+The results show a trend where the trained models reduce in loss as the number of training epochs increases. The consistent reduction in the loss function throughout training of all models highlights the models' robustness and reliability in iferring the right principal axes, which actually is the key aspect of their performances. 
+
+### IV.2. Evaluation metrics for models comparison
+
+**(a) Visual Evaluation of Data Generation Quality**
+In this section, we visualize the overlap between the generated and original decision data to assess the performance of the data generation part of the models, thus, the reliability of inferred principal axes. By plotting both data, real and generated, in a common space, we can visually inspect how well the reconstructed samples capture the structure and variability of the original data. Significant overlap indicates high fidelity in generation, while divergence testifies model limitations.
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="public/images/n_map_gen.png" alt="Normal PPCA generation (MAP)"></td>
+      <td><img src="public/images/gm_map_gen.png" alt="GM PPCA generation (MAP)"></td>
+    </tr>
+  </table>
+  <h2>Figure 4 : Overlap Between Generated and Real Data with MAP inference</h1>
+</div>
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="public/images/n_vi_gen.png" alt="Normal PPCA generation (VI)"></td>
+      <td><img src="public/images/gm_vi_gen.png" alt="GM PPCA generation (VI)"></td>
+    </tr>
+  </table>
+  <h2>Figure 5 : Overlap Between Generated and Real Data with variational inference</h1>
 </div>
 
 
