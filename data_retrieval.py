@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import gzip
+import tensorflow as tf
 
 def get_models_data(file_path) : 
 
@@ -19,6 +20,17 @@ def get_models_data(file_path) :
        "pca_data" : pca_dataset,
        "vae_data" : vae_dataset
     }
+
+
+def get_criteria_comparison_data(file_path, DM_number, criteria_number):
+  skiprows = 0
+  data = dict()
+  for i in range(DM_number):
+    DM = "DM{}".format(i+1)
+    data[DM] = tf.Variable(pd.read_excel(file_path, engine = 'openpyxl', usecols="B:M", skiprows=skiprows, nrows=12), dtype = 'float32')
+    skiprows += criteria_number + 1
+  return data
+
 
 def get_alternatives_matrix(ds_ahp_dataset, criteria_list):
   criteria_number = len(criteria_list)

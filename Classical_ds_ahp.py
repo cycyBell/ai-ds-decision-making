@@ -2,8 +2,8 @@
 import pandas as pd
 import numpy as np
 import numpy.linalg as la
-from numpy.lib.arraysetops import intersect1d, union1d
-from numpy.core.fromnumeric import argmax, argsort
+from numpy import intersect1d, union1d
+from numpy import argmax, argsort
 from math import sqrt
 
 
