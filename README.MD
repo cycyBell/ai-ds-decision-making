@@ -350,32 +350,6 @@ Where :
 
 We set up our model assuming $\sigma$ is known, and instead of point estimating $\textbf{W}$, as a model parameter, we place a prior over it in order to infer a distribution over principal axes.
 
-<div align="center">
-  <h2>Table 1 : PPCA models' variables</h1>
-  <table>
-    <tr>
-      <td>Variable</td>
-      <td>Description</td>
-      <td>Shape</td>
-      <td>Distribution</td>
-      <td>Init value</td>
-    </tr>
-    <tr>
-      <td>$\texbf{W}$</td>
-      <td>Principal axes</td>
-      <td>(Data_dim, Latent_dim)</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-</div>
-
 **c- Models Training**
 
 - ***Maximum A Posteriori Inference***
@@ -499,6 +473,7 @@ Where:
   2. **Run the Model**: Compute the alternative rankings for the different scenarios;
   3. **Analyse sensitivity**: Compute sensitivity index.
 
+
   <div align="center">
   <table>
     <tr>
@@ -510,6 +485,32 @@ Where:
 </div>
 
 According to the left side of **Figure 6**,  as delta, the magnitude of the change applied to the criteria priorities, increases, it naturally leads to larger variations in the final alternative scores, hence higher sensitivity. As a matter of fact, unlike the Classical Model deemed to be unstable(**Figure 6**: Right graph), the ML-based model consistently respond to proportional changes in CPVs perturbation magnitude. The growing sensitivity curve indicates that the model is capturing this relationship effectively.
+
+## V. CONCLUSION
+
+This study explored both the classical and modern paradigms of multi-criteria decision-making (MCDM), highlighting how traditional frameworks like DS/AHP can be reinterpreted and enriched through data-driven approaches. By introducing a latent modeling strategy, alongside a consensus-building mechanism and a sensitivity analysis framework, we aimed to bridge the gap between structured judgment and flexible learning. The integration of Bayesian belief modeling, pairwise comparison tensors, and DMPV/CPV estimation offers a transparent and adaptive way to reflect decision-makers' expertise and preferences.
+
+Our approach not only respects the mathematical rigor of established techniques but also embraces the adaptability of machine learning methods. The consensus loop, in particular, fosters collaboration among decision-makers, ensuring that the final outcome is both informed and collectively supported. Meanwhile, the sensitivity index brings clarity to how weight adjustments impact outcomes, offering a layer of interpretability often absent in automated systems.
+
+Overall, this framework open new avenues for a more robust, interpretable, and human-centered decision-making process. Future research may extend these models to dynamic environments or incorporate real-time feedback, further aligning decision systems with the complexities of the real world.
+
+## References
+
+[1] Khosravi, Khabat, et al. "A comparative assessment of flood susceptibility modeling using multi-criteria decision-making analysis and machine learning methods." Journal of Hydrology 573 (2019): 311-323.
+
+[2] Shikhteymour, Sharareh Rashidi, et al. "A novel approach for assessing flood risk with machine learning and multi-criteria decision-making methods." Applied geography 158 (2023): 103035.
+
+[3] Yang, Mei, et al. "Deep Learning Algorithms and Multicriteria Decision‐Making Used in Big Data: A Systematic Literature Review." Complexity 2020.1 (2020): 2836064.
+
+[4] Pham, Binh Thai, et al. "Flood risk assessment using deep learning integrated with multi-criteria decision analysis." Knowledge-based systems 219 (2021): 106899.
+
+[5] Herrera-Viedma, Enrique, Francisco Herrera, and Francisco Chiclana. "A consensus model for multiperson decision making with different preference structures." IEEE Transactions on Systems, Man, and Cybernetics-Part A: Systems and Humans 32.3 (2002): 394-402.
+
+[6] Parreiras, Roberta O., et al. "A flexible consensus scheme for multicriteria group decision making under linguistic assessments." Information Sciences 180.7 (2010): 1075-1089.
+
+[7] Yilmaz, Ibrahim, Aylin Adem, and Metin Dağdeviren. "A machine learning-integrated multi-criteria decision-making approach based on consensus for selection of energy storage locations." Journal of Energy Storage 69 (2023): 107941.
+
+[8] Choudhury, A. K., Ravi Shankar, and M. K. Tiwari. "Consensus-based intelligent group decision-making model for the selection of advanced technology." Decision Support Systems 42.3 (2006): 1776-1799.
 
 
 
