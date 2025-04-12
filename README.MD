@@ -1,4 +1,4 @@
-#  Multicriteria Decision Making: Comparative Study of the Classical DS/AHP model and it’s Modern ML-based Approach. using Probabilistic Principal Component Analysis (PPCA).
+#  Multicriteria Decision Making: Comparative Study of the Classical DS/AHP model and it’s Modern ML-based Approach using Probabilistic Principal Component Analysis (PPCA).
 
 ## Abstract
 The Analytic Hierarchy Process (AHP) (Saaty, 1977) is a decision-making framework designed to help decicion makers (DMs) rank or prioritize alternatives, sort information based on multiple criteria via criteria and alternatives pairwise  comparison and decision makers consensus building. A recent advancement, the DS/AHP method, merges Dempster-Shafer theory with AHP, enabling judgments on groups of decision alternatives (DA) while incorporating a measure of uncertainty in the final results. Using the Dempster-Shaper Theory(DST), one can tap into its power of multiple evidence sources combination through the famous Dempter's rule of combination. 
