@@ -1,4 +1,4 @@
-# ⚖️ Multicriteria Decision Making : A comparative study of the classical Dempster-Shaper Theory-based Analytic Hierarchy Process (DS/AHP) and its Modern ML-based Approach using Probabilistic Principal Component Analysis (PPCA).
+#  Multicriteria Decision Making: Comparative Study of the Classical DS/AHP model and it’s Modern ML-based Approach. using Probabilistic Principal Component Analysis (PPCA).
 
 ## Abstract
 The Analytic Hierarchy Process (AHP) (Saaty, 1977) is a decision-making framework designed to help decicion makers (DMs) rank or prioritize alternatives, sort information based on multiple criteria via criteria and alternatives pairwise  comparison and decision makers consensus building. A recent advancement, the DS/AHP method, merges Dempster-Shafer theory with AHP, enabling judgments on groups of decision alternatives (DA) while incorporating a measure of uncertainty in the final results. Using the Dempster-Shaper Theory(DST), one can tap into its power of multiple evidence sources combination through the famous Dempter's rule of combination. 
@@ -486,7 +486,7 @@ Where:
 
 According to the left side of **Figure 6**,  as delta, the magnitude of the change applied to the criteria priorities, increases, it naturally leads to larger variations in the final alternative scores, hence higher sensitivity. As a matter of fact, unlike the Classical Model deemed to be unstable(**Figure 6**: Right graph), the ML-based model consistently respond to proportional changes in CPVs perturbation magnitude. The growing sensitivity curve indicates that the model is capturing this relationship effectively.
 
-## V. CONCLUSION
+## V. Conclusion
 
 This study explored both the classical and modern paradigms of multi-criteria decision-making (MCDM), highlighting how traditional frameworks like DS/AHP can be reinterpreted and enriched through data-driven approaches. By introducing a latent modeling strategy, alongside a consensus-building mechanism and a sensitivity analysis framework, we aimed to bridge the gap between structured judgment and flexible learning. The integration of Bayesian belief modeling, pairwise comparison tensors, and DMPV/CPV estimation offers a transparent and adaptive way to reflect decision-makers' expertise and preferences.
 
